@@ -1,0 +1,30 @@
+.app-container-navBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: blanchedalmond;
+}
+
+.app-container-navBar-Logo > img {
+  width: 250px;
+  height: 100px;
+}
+
+.app-container-navBar > div {
+  margin-left: 17px;
+  display: flex;
+  flex-direction: row;
+}
+
+.app-container-navBar-user {
+  margin-left: 25px;
+}
+
+.app-container-navBar-user > svg {
+  margin-right: 10px;
+}
+
+.app-container-navBar-history {
+  margin-left: -30px;
+}

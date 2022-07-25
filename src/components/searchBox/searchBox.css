@@ -1,0 +1,33 @@
+.app-container-searchbox {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 30px;
+  height: fit-content;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.app-container-input > input {
+  border: none;
+  outline: none;
+  width: 470px;
+}
+
+.app-container-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px dashed;
+  padding-right: 10px;
+}
+
+.app-container-icon > svg {
+  margin-left: 4px;
+}
