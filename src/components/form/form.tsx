@@ -18,8 +18,10 @@ export const FormLogin: React.FC<{}> = ({}) => {
 
   return (
     <div className="app-container-login">
-      <h1>Iniciar sesión</h1>
-
+      <div className="app-container-title">
+      <h1>INICIAR SESIÓN</h1>
+      </div>
+      
       <div className="app-container-logo">
         <img
           src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"

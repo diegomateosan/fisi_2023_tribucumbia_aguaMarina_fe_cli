@@ -32,10 +32,11 @@ export const NavBarDefault: React.FC<{}> = () => {
           handleSearch={() => alert("Buscado")}
         />
       </div>
+     
 
       <div className="app-container-navBar-user">
-        <BsPersonCircle size={25} onClick={() => SetModalStateLogin(true)} />
-        <label>Iniciar Sesión / Registrarse</label>
+        <BsPersonCircle size={25} />
+        <label onClick={() => SetModalStateLogin(true) } >Iniciar Sesión / Registrarse</label>
 
         <ModalLogin state={modalStateLogin} handleChange={SetModalStateLogin} />
       </div>
@@ -49,6 +50,8 @@ export const NavBarDefault: React.FC<{}> = () => {
         <BsCart size={25} />
         <label>Carrito de compras</label>
       </div>
+
+   
     </div>
   );
 };

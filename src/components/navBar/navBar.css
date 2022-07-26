@@ -17,6 +17,11 @@
   flex-direction: row;
 }
 
+.app-container-navBar > div > label {
+  cursor: pointer;
+}
+
+
 .app-container-navBar-user {
   margin-left: 25px;
 }
