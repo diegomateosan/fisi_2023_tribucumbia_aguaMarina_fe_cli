@@ -26,20 +26,6 @@ export const NavBarDefault: React.FC<{}> = () => {
               />
             </div>
 
-<<<<<<< HEAD
-        <div className="app-container-navBar-searchbox">
-          <Searchbox
-            placeholder="Buscar por líbro, autor o categoría"
-            handleSearch={() => alert("Buscado")}
-          />
-        </div>
-
-        <div className="app-container-navBar-user">
-          <BsPersonCircle size={25} />
-          <label onClick={() => SetModalStateLogin(true)}>
-            Iniciar Sesión / Registrarse
-          </label>
-=======
             <div className="app-container-navBar-searchbox">
               <Searchbox
                 placeholder="Buscar por líbro, autor o categoría"
@@ -59,7 +45,6 @@ export const NavBarDefault: React.FC<{}> = () => {
               handleChange={SetModalStateLogin}
             />
           </div>
->>>>>>> ece7622734a53ce1350aec6542a120e3b0cf7102
 
           <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />
@@ -75,4 +60,4 @@ export const NavBarDefault: React.FC<{}> = () => {
       </div>
     </div>
   );
-};
+}
