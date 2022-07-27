@@ -12,16 +12,6 @@
   margin: 0 auto;
 }
 
-.app-container-navBar-Logo {
-  /* width: 5rem; */
-}
-
-.app-container-navBar-searchbox {
-  /* min-width: 35%; */
-  /* margin-right: 50px; */
-  /* justify-content: center; */
-}
-
 .app-container-navBar-links {
   display: flex;
   align-items: center;
@@ -42,13 +32,8 @@
   cursor: pointer;
 }
 
-
 .app-container-navBar-user {
   cursor: pointer;
-}
-
-.app-container-navBar-history,
-.app-container-navBar-cart {
 }
 
 .app-container-navBar-user,

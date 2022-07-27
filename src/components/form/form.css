@@ -1,39 +1,30 @@
-.app-container-login{
-
-background-color: white;
-width: 500px;
-height: 600px;
-align-items: center;
-justify-content: center;
-display: flex;
-flex-direction: column;
-border : 1px  solid;
-border-radius: 30px; 
-
-
+.app-container-login {
+  background-color: white;
+  width: 500px;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 30px;
 }
 
-.app-container-form{
-
-width: 100%;
+.app-container-form {
+  width: 100%;
 }
 
-
-.app-container-logo > img{
-    width: 300px;
-
-
+.app-container-logo > img {
+  width: 300px;
 }
 
 .app-container-logo {
-    display:  flex;
-    justify-content: center;
-    align-content: center;
-    margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-left: 30px;
 }
-.app-container-title{
-    display:  flex;
-    margin-top: -250px;
- 
+.app-container-title {
+  display: flex;
+  margin-top: -250px;
 }
-
