@@ -10,21 +10,17 @@ export const Searchbox: React.FC<{
 }> = ({ placeholder, handleSearch }) => {
   return (
     <div className="app-container-searchbox">
-      <div className="app-container-input">
-        <input
-          type={"text"}
-          placeholder={placeholder}
-          onKeyPress={(event) => {
-            if (event.code === "Enter") {
-              handleSearch();
-            }
-          }}
-        />
-      </div>
+      <input
+        type={"text"}
+        placeholder={placeholder}
+        onKeyPress={(event) => {
+          if (event.code === "Enter") {
+            handleSearch();
+          }
+        }}
+      />
 
-      <div className="app-container-icon">
-        <BiSearchAlt size={20} />
-      </div>
+      <BiSearchAlt className="icon-search" size={20} />
     </div>
   );
 };

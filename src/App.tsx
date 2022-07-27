@@ -15,6 +15,8 @@ import { useState, useEffect } from "react";
 import { NavBarDefault } from "./components/navBar/navBar";
 import { Home } from "./pages/home/home";
 import { ModalLogin } from "./components/modals/modals";
+import { Footer } from "./components/footer/footer";
+import { Categories } from "./components/categories/category";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
