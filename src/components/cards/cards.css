@@ -1,5 +1,6 @@
 .secc {
   width: 100vw;
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -12,16 +13,6 @@
   margin-left: 10px;
 }
 
-/* .container-cards {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  gap: 20px;
-  border-radius: 15px;
-} */
 .container-cards {
   width: 100%;
   height: 100%;
@@ -37,12 +28,13 @@
   width: 100%;
   height: 100%;
   background-color: white;
-  border: 1px solid transparent;
   border-radius: 15px;
+  box-shadow: var(--box-shadow);
   padding-top: 12px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  overflow: hidden;
 }
 .card .title-prevent {
   width: 80%;
@@ -126,6 +118,61 @@
   align-items: center;
   justify-content: center;
   font-size: 20px;
+}
+
+.container-button-order {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-button-order {
+  width: 80%;
+  height: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.button-order {
+  border: none;
+  background-color: #34daf0;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: white;
+  box-shadow: var(--box-shadow);
+}
+
+.button-order-hover {
+  display: none;
+}
+
+.button-order > span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.button-order-hover > span {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.icon-cart-button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.wrapper-button-order:hover .button-order {
+  display: none;
+}
+
+.wrapper-button-order:hover .button-order-hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 
 /* ************** */

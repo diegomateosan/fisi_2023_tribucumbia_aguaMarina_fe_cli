@@ -7,7 +7,6 @@
   width: 80%;
   display: grid;
   grid-template-columns: 0.1fr 0.5fr 0.5fr;
-  /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr)); */
   align-items: center;
   margin: 0 auto;
 }

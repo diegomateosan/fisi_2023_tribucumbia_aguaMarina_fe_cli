@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { BsCart } from "react-icons/bs";
+import { Button } from "../button/button";
 import "./cards.css";
 
 const Cards = () => {
@@ -29,6 +31,18 @@ const Cards = () => {
                   </div>
                   <div className="descuento"></div>
                 </div>
+
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div className="card">
@@ -53,6 +67,18 @@ const Cards = () => {
                   </div>
                   <div className="descuento">
                     <p>5%</p>
+                  </div>
+                </div>
+
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -78,7 +104,20 @@ const Cards = () => {
                   </div>
                   <div className="descuento"></div>
                 </div>
+
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+
               <div className="card">
                 <div className="title-prevent">
                   <a href={"'#'"}>Preventa</a>
@@ -103,7 +142,20 @@ const Cards = () => {
                     <p>5%</p>
                   </div>
                 </div>
+
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+
               <div className="card">
                 <div className="title-prevent">
                   <a href={"'#'"}>Preventa</a>
@@ -128,7 +180,19 @@ const Cards = () => {
                     <p>5%</p>
                   </div>
                 </div>
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+
               <div className="card">
                 <div className="title-prevent">
                   <a href={"'#'"}>Preventa</a>
@@ -151,6 +215,17 @@ const Cards = () => {
                   </div>
                   <div className="descuento">
                     <p>5%</p>
+                  </div>
+                </div>
+                <div className="container-button-order">
+                  <div className="wrapper-button-order">
+                    <button className="button-order">
+                      <span>Ordenar</span>
+                    </button>
+                    <button className="button-order button-order-hover">
+                      <BsCart className="icon-cart-button"></BsCart>
+                      <span>Enviar al carrito</span>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -8,7 +8,7 @@ export const Footer: React.FC<{}> = ({}) => {
   return (
     <div className="app-main-container-footer">
       <div className="app-container-footer">
-        <div className="partFooter-img1">
+        <div className="partFooter partFooter-img1">
           <img
             src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
             alt="Villalibros Logo"
