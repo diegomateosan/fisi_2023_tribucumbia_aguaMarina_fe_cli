@@ -18,47 +18,33 @@ export const NavBarDefault: React.FC<{}> = () => {
   return (
     <div className="app-container-navBar-header">
       <div className="app-container-navBar">
-        <div className="app-container-navBar-Logo">
-          <img
-            src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
-            alt="Villalibros Logo"
-            title="Logo Villalibros"
-          />
-        </div>
+            <div className="app-container-navBar-Logo">
+              <img
+                src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
+                alt="Villalibros Logo"
+                title="Logo Villalibros"
+              />
+            </div>
 
-<<<<<<< HEAD
-      <div className="app-container-navBar-searchbox">
-        <Searchbox
-          placeholder="Buscar por líbro, autor o categoría"
-          handleSearch={() => alert("Buscado")}
-        />
-      </div>
-     
-
-      <div className="app-container-navBar-user">
-        <BsPersonCircle size={25} />
-        <label onClick={() => SetModalStateLogin(true) } >Iniciar Sesión / Registrarse</label>
-=======
-        <div className="app-container-navBar-searchbox">
-          <Searchbox
-            placeholder="Buscar por líbro, autor o categoría"
-            handleSearch={() => alert("Buscado")}
-          />
-        </div>
+            <div className="app-container-navBar-searchbox">
+              <Searchbox
+                placeholder="Buscar por líbro, autor o categoría"
+                handleSearch={() => alert("Buscado")}
+              />
+            </div>
 
         <div className="app-container-navBar-links">
           <div className="app-container-navBar-user">
             <BsPersonCircle
               className="icon icon-user"
-              onClick={() => SetModalStateLogin(true)}
+              
             />
-            <p> Iniciar Sesión / Registrarse</p>
+            <p onClick={() => SetModalStateLogin(true)}> Iniciar Sesión / Registrarse</p>
             <ModalLogin
               state={modalStateLogin}
               handleChange={SetModalStateLogin}
             />
           </div>
->>>>>>> 5cb9083b428d66dd05e135c20935551dde643be3
 
           <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />
@@ -69,10 +55,9 @@ export const NavBarDefault: React.FC<{}> = () => {
             <BsCart className="icon icon-cart" />
             <p>Carrito de Compras</p>
           </div>
+
         </div>
       </div>
-
-   
     </div>
   );
 };
