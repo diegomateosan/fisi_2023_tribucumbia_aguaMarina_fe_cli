@@ -1,6 +1,8 @@
 import React from "react";
 import { FormLogin } from "../form/form";
 
+import { FcUndo } from "react-icons/fc";
+
 import "./modals.css";
 
 export const ModalLogin: React.FC<{
@@ -11,8 +13,10 @@ export const ModalLogin: React.FC<{
     <>
       {state && (
         <div className="app-container-overlay">
-          <FormLogin />
-          <button onClick={() => handleChange(false)}>Cerrar</button>
+          <FormLogin
+            state={state}
+            handleChange={(txt: boolean) => handleChange(txt)}
+          />
         </div>
       )}
     </>

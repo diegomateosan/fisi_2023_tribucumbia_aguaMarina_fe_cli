@@ -1,7 +1,7 @@
 .app-container-login {
   background-color: white;
   width: 500px;
-  height: 600px;
+  height: 550px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -26,5 +26,25 @@
 }
 .app-container-title {
   display: flex;
-  margin-top: -250px;
+}
+
+.app-container-label-register {
+  margin-left: 55px;
+  margin-top: 25px;
+}
+
+.app-container-tittleReturn {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-container-login-return > svg {
+  margin-top: -20px;
+  margin-left: -100px;
+}
+
+.app-container-login-return {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
 }

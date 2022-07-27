@@ -10,3 +10,13 @@
   justify-content: center;
   z-index: 100;
 }
+
+.app-container-overlay-icon {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-container-overlay-icon > svg {
+  margin-top: -250px;
+  margin-left: 100px;
+}

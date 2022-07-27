@@ -5,8 +5,23 @@ export const Button: React.FC<{
   placeholder: string;
 }> = ({ handleClick, placeholder }) => {
   return (
-    <div app-container-button>
-      <button>{placeholder}</button>
+    <div className="app-container-button">
+      <button onClick={handleClick}>{placeholder}</button>
+    </div>
+  );
+};
+
+export const ButtonLogin: React.FC<{
+  handleClick: (password: boolean, email: boolean) => void;
+  password: boolean;
+  email: boolean;
+  placeholder: string;
+}> = ({ handleClick, placeholder, email, password }) => {
+  return (
+    <div className="app-container-buttonLogin">
+      <button onClick={() => handleClick(password, email)}>
+        {placeholder}
+      </button>
     </div>
   );
 };

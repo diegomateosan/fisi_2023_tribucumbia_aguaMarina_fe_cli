@@ -1,6 +1,18 @@
-.app-container-button{
+.app-container-button {
+  cursor: pointer;
+  background-color: red;
+}
 
-    cursor: pointer;
-    background-color: red;
+.app-container-buttonLogin {
+  margin-top: 30px;
+}
 
+.app-container-buttonLogin > button {
+  width: 216px;
+  height: 37.41px;
+  border-radius: 15px;
+  border: none;
+  background-color: #34daf0;
+  font-size: 14px;
+  color: white;
 }
