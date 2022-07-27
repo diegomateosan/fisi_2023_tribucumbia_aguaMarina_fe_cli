@@ -17,13 +17,16 @@ import { Home } from "./pages/home/home";
 import { ModalLogin } from "./components/modals/modals";
 import { Footer } from "./components/footer/footer";
 import { Categories } from "./components/categories/category";
+import { OrderDetailsPage } from "./pages/orderDetails/orderDetail";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
-      <Routes>{!userLoggedIn && <Route path="/" element={<Home />} />}</Routes>
+      <Routes>
+        {!userLoggedIn && <Route path="/" element={<OrderDetailsPage />} />}
+      </Routes>
     </BrowserRouter>
   );
 }

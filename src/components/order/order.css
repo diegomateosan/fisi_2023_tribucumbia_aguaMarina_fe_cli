@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+.container {
+  background-color: #f4f6f8;
+  width: 100%;
+  height: 100vh;
+}
+.container-info {
+  background-color: #fff;
+  width: 85%;
+  height: 700px;
+  margin: auto;
+  padding: 40px 10px;
+  display: grid;
+  grid-template-columns: 1.2fr 1.65fr;
+  box-shadow: 0 5px 35px rgb(95 128 132 / 10%);
+}
+.container-info-img {
+  width: 82%;
+  height: auto;
+  margin: auto;
+}
+.container-info-img > img {
+  width: 100%;
+  height: auto;
+}
+.description-total {
+  /* background-color: aquamarine; */
+  width: 93%;
+  height: auto;
+  padding-top: 20px;
+}
+.description-total-title {
+  /* background-color: grey; */
+}
+.links {
+  display: flex;
+  gap: 15px;
+}
+.links > a {
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+#a1 {
+  background-color: #e41b1b;
+}
+#a2 {
+  background-color: #ff9800;
+}
+.description-total-info {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+.left {
+  padding: 10px 40px 20px 10px;
+}
+
+.list {
+  margin-right: 6px;
+  font-size: 12px;
+  font-family: "Sora", sans-serif;
+  color: #24304b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed #dce0e6;
+  padding-bottom: 5px;
+}
+
+.right {
+  padding: 0 20px;
+  height: 500px;
+}
+.right-contenido {
+  color: #24304b;
+  font-size: 14px;
+  line-height: 23px;
+  text-align: justify;
+  padding: 0 10px;
+  letter-spacing: 0;
+}
+
+.right-precio {
+  display: grid;
+  grid-template-columns: 1fr 2.8fr;
+  gap: 10px;
+  align-items: center;
+  text-align: start;
+  padding-left: 15px;
+}
+
+.right-precio .precio-descuento > p {
+  text-decoration: line-through;
+  color: grey;
+}
+.precio-descuento > h3 {
+  font-size: 20px;
+  font-family: Sora-Bold;
+  color: #09013d;
+}
+.right-precio .ahorra {
+  background: rgb(76 175 80/10%);
+  color: #4caf50;
+  text-transform: uppercase;
+  font-family: Sora-Bold;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  width: max-content;
+  border: 2px dashed rgb(76 175 80/30%);
+  position: relative;
+  padding: 10px 15px 10px 37px;
+}
+.ahorra::before {
+  content: "";
+  background-image: url(https://iberoperu.vteximg.com.br/arquivos/99-price-tag-empty-outline.gif);
+  width: 30px;
+  height: 34px;
+  position: absolute;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  left: 5px;
+  top: 0;
+}
+.ahorra > a {
+  text-decoration: none;
+  color: #4caf50;
+  font: 12px;
+  font-family: "Sora", sans-serif;
+  font-weight: bold;
+}
+.comprar {
+  padding-top: 20px;
+  display: flex;
+  text-align: center;
+  gap: 40px;
+}
+.comprar > input {
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 34px;
+  border-radius: 10px;
+  color: #24304b;
+  border: 1px solid #dce0e6;
+  padding: 0 8px;
+}
+.comprar > button {
+  width: 150px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  padding-top: 0;
+  transition: all 0.15s ease-in-out;
+  border-radius: 7px;
+  border: none;
+  background-color: #13c0d7;
+  font-family: Sora-SemiBold;
+  max-width: 500px;
+  color: white;
+  cursor: pointer;
+}
