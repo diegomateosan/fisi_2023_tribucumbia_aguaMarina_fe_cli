@@ -1,0 +1,50 @@
+/* Footer */
+.app-main-container-footer {
+  width: 100vw;
+  background-color: #f2f2f2;
+}
+
+.app-container-footer {
+  width: 80%;
+
+  padding: 50px 0;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.partFooter {
+  width: 15%;
+  align-items: center;
+  text-align: center;
+}
+
+.partFooter h4 {
+  color: #1d273b;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.i-copyright {
+  color: black;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: black;
+  transition: 0.2s ease all;
+}
+
+.icon-sm {
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+}
