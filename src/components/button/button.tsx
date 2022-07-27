@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./button.css";
 export const Button: React.FC<{
   handleClick: () => void;
   placeholder: string;

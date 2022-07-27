@@ -33,18 +33,11 @@ export const NavBarDefault: React.FC<{}> = () => {
           />
         </div>
 
-        <div className="app-container-navBar-links">
-          <div className="app-container-navBar-user">
-            <BsPersonCircle
-              className="icon icon-user"
-              onClick={() => SetModalStateLogin(true)}
-            />
-            <p> Iniciar Sesión / Registrarse</p>
-            <ModalLogin
-              state={modalStateLogin}
-              handleChange={SetModalStateLogin}
-            />
-          </div>
+        <div className="app-container-navBar-user">
+          <BsPersonCircle size={25} />
+          <label onClick={() => SetModalStateLogin(true)}>
+            Iniciar Sesión / Registrarse
+          </label>
 
           <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />

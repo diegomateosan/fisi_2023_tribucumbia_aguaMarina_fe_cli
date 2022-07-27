@@ -38,6 +38,11 @@
   display: flex;
 }
 
+.app-container-navBar > div > label {
+  cursor: pointer;
+}
+
+
 .app-container-navBar-user {
   cursor: pointer;
 }
