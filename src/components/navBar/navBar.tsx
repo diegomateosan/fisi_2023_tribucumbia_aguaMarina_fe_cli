@@ -60,4 +60,4 @@ export const NavBarDefault: React.FC<{}> = () => {
       </div>
     </div>
   );
-}
+};
