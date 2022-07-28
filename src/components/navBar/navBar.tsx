@@ -15,7 +15,6 @@ import "./navBar.css";
 
 export const NavBarDefault: React.FC<{}> = () => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
-<<<<<<< HEAD
   const navigate = useNavigate();
 =======
   const [modalStateRegister, SetModalStateRegister] = useState(false);
@@ -29,10 +28,6 @@ export const NavBarDefault: React.FC<{}> = () => {
             src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
             alt="Villalibros Logo"
             title="Logo Villalibros"
-<<<<<<< HEAD
-            onClick={() => navigate("/")}
-=======
->>>>>>> b67135f32d3c131ce4142162bb77ddbe4f33f9f6
           />
         </div>
 
