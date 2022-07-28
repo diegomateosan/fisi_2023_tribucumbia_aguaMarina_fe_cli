@@ -153,9 +153,9 @@ export const InputPassword: React.FC<{
   return (
     <div className="app-container-input">
       <div className="app-container-input-icon">
-        <div className="app-container-input-label">
-          <label>{label}</label>
-        </div>
+          <div className="app-container-input-label">
+            <label>{label}</label>
+          </div>
         <div className="app-container-inputAndIcon">
           <input
             type={clickedIn ? "text" : "password"}

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillShieldLockFill } from "react-icons/bs";
-import { Button, ButtonLogin } from "../button/button";
+
+import { Button, ButtonLogin, ButtonRegister} from "../button/button";
 import { InputDefault, InputPassword } from "../input/input";
 import { FcUndo } from "react-icons/fc";
-
+import { FiCheckSquare, FiSquare } from "react-icons/fi";
 import "./form.css";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const FormLogin: React.FC<{
   state: boolean;
@@ -38,6 +38,9 @@ export const FormLogin: React.FC<{
     handleChange(false);
     handleRegister(true);
   };
+
+  
+
 
   return (
     <div className="app-container-login">
@@ -102,6 +105,8 @@ export const FormRegister: React.FC<{
   handleChange: (text: boolean) => void;
   registerState: boolean;
   handleRegister: (text: boolean) => void;
+
+
 }> = ({ state, handleChange, registerState, handleRegister }) => {
   const [nameValue, setNameValue] = useState("");
   const [nametState, setNameState] = useState(false);
@@ -121,21 +126,88 @@ export const FormRegister: React.FC<{
   const [passwordValue, setPasswordValue] = useState("");
   const [passwordState, setPasswordState] = useState(false);
 
+  const [terminoStatue, seterminosState] = useState(false);
+
+  const tooglePasswordVisibility = () => {
+    if (terminoStatue === false) {
+      seterminosState(true);
+    } else {
+      seterminosState(false);
+    }
+  };
+
+
+
+  const RegisterLogic =(name: boolean ,lastname : boolean , dni : boolean, phone: boolean, password: boolean, email: boolean,terminos : boolean)=>{
+    if(name===false){
+      alert("Nombre no valido")
+    }
+    if(lastname===false){
+      alert("Apellido no valido")
+    }
+    if(dni===false){
+      alert("DNI no valido")
+    }
+    if(phone===false){
+      alert("Celular no valido")
+    }
+    if(email===false){
+      alert("email no valido")
+    }
+
+    if(password===false){
+      alert("Contraseña no valido")
+    }
+
+    if(terminos===false){
+      alert("Terminos y condiciones no aceptados")
+    }
+
+    if(name ===true && lastname ===true && email ===true && password ===true && phone ===true && dni===true && terminos===true){
+      alert("Usuario registrado correctamente")
+      handleRegister(false);
+      handleChange(true);
+    }
+
+  }
+  const volverLogin=()=>{
+    handleRegister(false);
+      handleChange(true);
+    
+  }
+
+  const volverHome=()=>{
+    handleRegister(false);
+      handleChange(false);
+    
+  }
+
   return (
     <div className="app-container-register">
       <div className="app-container-register-tittleReturn">
         <div className="app-container-register-return">
           <FcUndo
-            size={40}
-            title="Cerrar Registro"
-            onClick={() => handleChange(false)}
+            size={50}
+            title="Regresar al login "
+            onClick={ volverLogin}
           />
         </div>
 
-        <div className="app-container-title">
+        <div className="app-container-register-title">
           <h1>REGISTRARSE</h1>
         </div>
+        <div className="app-container-register-exit">
+          <AiOutlineClose
+            size={50}
+            title="Cerrar Registro"
+            onClick={ volverHome}
+          />
+        </div>
+
+
       </div>
+
+     
 
       <div className="app-container-register-form">
         <div className="app-container-nombre-apellido">
@@ -212,17 +284,57 @@ export const FormRegister: React.FC<{
           </div>
         </div>
         <div className="app-container-register-password">
-          <InputPassword
-            estado={passwordState}
-            campo={passwordValue}
-            cambiarEstado={(txt: boolean) => setPasswordState(txt)}
-            cambiarCampo={(txt: string) => setPasswordValue(txt)}
-            label="Contraseña"
-            placeholder="Debe contener entre 8 a 20 caracteres"
-            leyendaError="Contraseña no válida"
-            expresionRegular={/^.{8,25}$/}
-          />
+            <div className="app-container-register-password-Separador">
+            <InputPassword
+                estado={passwordState}
+                campo={passwordValue}
+                cambiarEstado={(txt: boolean) => setPasswordState(txt)}
+                cambiarCampo={(txt: string) => setPasswordValue(txt)}
+                label="Contraseña"
+                placeholder="Debe contener entre 8 a 20 caracteres"
+                leyendaError="Contraseña no válida"
+                expresionRegular={/^.{8,25}$/}
+              />
+
+            </div>
+
+          
+          </div> 
+          <div className="app-container-register-terminos">
+              
+              {terminoStatue? (
+              <FiCheckSquare size={18} onClick={tooglePasswordVisibility} />
+            ) : (
+              <FiSquare size={18} onClick={tooglePasswordVisibility} />
+            )}
+  
+                <label>Estoy de acuerdo con las  </label>
+                <a href=""> condiciones de uso</a>
+                <label> y </label>
+                <a href=""> politica de privacidad</a>
+                
+               </div>
+  
+  
+          <div className="app-container-register-CrearCuenta"> 
+            <ButtonRegister 
+            name={nametState}
+            lastname={lastNameState}
+            dni={dniState}
+            email={emailState}
+            phone={phoneState}
+            password={passwordState}
+            placeholder="CREAR CUENTA"
+            terminos={terminoStatue}
+            handleClick={(name: boolean ,lastname : boolean , dni : boolean, phone: boolean, password: boolean, email: boolean,terminos : boolean)=>RegisterLogic(name,lastname,dni,phone,password,email,terminos)}
+       
+      />
+             
+
         </div>
+         
+
+
       </div>
     </div>
   );
