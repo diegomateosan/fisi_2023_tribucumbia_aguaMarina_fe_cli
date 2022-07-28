@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-import { Button, ButtonLogin, ButtonRegister} from "../button/button";
+import { Button, ButtonLogin, ButtonRegister } from "../button/button";
 import { InputDefault, InputPassword } from "../input/input";
 import { FcUndo } from "react-icons/fc";
 import { FiCheckSquare, FiSquare } from "react-icons/fi";
@@ -11,10 +10,22 @@ import { AiOutlineClose } from "react-icons/ai";
 export const FormLogin: React.FC<{
   state: boolean;
   handleChange: (text: boolean) => void;
-
+  userState: boolean;
+  setUserState: (txt: boolean) => void;
   registerState: boolean;
   handleRegister: (text: boolean) => void;
-}> = ({ state, handleChange, registerState, handleRegister }) => {
+  emailValue: string;
+  setEmail: (txt: string) => void;
+}> = ({
+  state,
+  handleChange,
+  registerState,
+  handleRegister,
+  userState,
+  setUserState,
+  emailValue,
+  setEmail,
+}) => {
   const [InputValue, setInputValue] = useState("");
   const [InputState, setInputState] = useState(false);
 
@@ -31,6 +42,8 @@ export const FormLogin: React.FC<{
     if (email === true && password === true) {
       alert("Sesión iniciada con éxito");
       handleChange(false);
+      setUserState(true);
+      setEmail(InputValue);
     }
   };
 
@@ -38,9 +51,6 @@ export const FormLogin: React.FC<{
     handleChange(false);
     handleRegister(true);
   };
-
-  
-
 
   return (
     <div className="app-container-login">
@@ -105,8 +115,6 @@ export const FormRegister: React.FC<{
   handleChange: (text: boolean) => void;
   registerState: boolean;
   handleRegister: (text: boolean) => void;
-
-
 }> = ({ state, handleChange, registerState, handleRegister }) => {
   const [nameValue, setNameValue] = useState("");
   const [nametState, setNameState] = useState(false);
@@ -136,61 +144,68 @@ export const FormRegister: React.FC<{
     }
   };
 
-
-
-  const RegisterLogic =(name: boolean ,lastname : boolean , dni : boolean, phone: boolean, password: boolean, email: boolean,terminos : boolean)=>{
-    if(name===false){
-      alert("Nombre no valido")
+  const RegisterLogic = (
+    name: boolean,
+    lastname: boolean,
+    dni: boolean,
+    phone: boolean,
+    password: boolean,
+    email: boolean,
+    terminos: boolean
+  ) => {
+    if (name === false) {
+      alert("Nombre no valido");
     }
-    if(lastname===false){
-      alert("Apellido no valido")
+    if (lastname === false) {
+      alert("Apellido no valido");
     }
-    if(dni===false){
-      alert("DNI no valido")
+    if (dni === false) {
+      alert("DNI no valido");
     }
-    if(phone===false){
-      alert("Celular no valido")
+    if (phone === false) {
+      alert("Celular no valido");
     }
-    if(email===false){
-      alert("email no valido")
-    }
-
-    if(password===false){
-      alert("Contraseña no valido")
-    }
-
-    if(terminos===false){
-      alert("Terminos y condiciones no aceptados")
+    if (email === false) {
+      alert("email no valido");
     }
 
-    if(name ===true && lastname ===true && email ===true && password ===true && phone ===true && dni===true && terminos===true){
-      alert("Usuario registrado correctamente")
+    if (password === false) {
+      alert("Contraseña no valido");
+    }
+
+    if (terminos === false) {
+      alert("Terminos y condiciones no aceptados");
+    }
+
+    if (
+      name === true &&
+      lastname === true &&
+      email === true &&
+      password === true &&
+      phone === true &&
+      dni === true &&
+      terminos === true
+    ) {
+      alert("Usuario registrado correctamente");
       handleRegister(false);
       handleChange(true);
     }
-
-  }
-  const volverLogin=()=>{
+  };
+  const volverLogin = () => {
     handleRegister(false);
-      handleChange(true);
-    
-  }
+    handleChange(true);
+  };
 
-  const volverHome=()=>{
+  const volverHome = () => {
     handleRegister(false);
-      handleChange(false);
-    
-  }
+    handleChange(false);
+  };
 
   return (
     <div className="app-container-register">
       <div className="app-container-register-tittleReturn">
         <div className="app-container-register-return">
-          <FcUndo
-            size={50}
-            title="Regresar al login "
-            onClick={ volverLogin}
-          />
+          <FcUndo size={50} title="Regresar al login " onClick={volverLogin} />
         </div>
 
         <div className="app-container-register-title">
@@ -200,14 +215,10 @@ export const FormRegister: React.FC<{
           <AiOutlineClose
             size={50}
             title="Cerrar Registro"
-            onClick={ volverHome}
+            onClick={volverHome}
           />
         </div>
-
-
       </div>
-
-     
 
       <div className="app-container-register-form">
         <div className="app-container-nombre-apellido">
@@ -284,40 +295,34 @@ export const FormRegister: React.FC<{
           </div>
         </div>
         <div className="app-container-register-password">
-            <div className="app-container-register-password-Separador">
+          <div className="app-container-register-password-Separador">
             <InputPassword
-                estado={passwordState}
-                campo={passwordValue}
-                cambiarEstado={(txt: boolean) => setPasswordState(txt)}
-                cambiarCampo={(txt: string) => setPasswordValue(txt)}
-                label="Contraseña"
-                placeholder="Debe contener entre 8 a 20 caracteres"
-                leyendaError="Contraseña no válida"
-                expresionRegular={/^.{8,25}$/}
-              />
+              estado={passwordState}
+              campo={passwordValue}
+              cambiarEstado={(txt: boolean) => setPasswordState(txt)}
+              cambiarCampo={(txt: string) => setPasswordValue(txt)}
+              label="Contraseña"
+              placeholder="Debe contener entre 8 a 20 caracteres"
+              leyendaError="Contraseña no válida"
+              expresionRegular={/^.{8,25}$/}
+            />
+          </div>
+        </div>
+        <div className="app-container-register-terminos">
+          {terminoStatue ? (
+            <FiCheckSquare size={18} onClick={tooglePasswordVisibility} />
+          ) : (
+            <FiSquare size={18} onClick={tooglePasswordVisibility} />
+          )}
 
-            </div>
+          <label>Estoy de acuerdo con las </label>
+          <a href=""> condiciones de uso</a>
+          <label> y </label>
+          <a href=""> politica de privacidad</a>
+        </div>
 
-          
-          </div> 
-          <div className="app-container-register-terminos">
-              
-              {terminoStatue? (
-              <FiCheckSquare size={18} onClick={tooglePasswordVisibility} />
-            ) : (
-              <FiSquare size={18} onClick={tooglePasswordVisibility} />
-            )}
-  
-                <label>Estoy de acuerdo con las  </label>
-                <a href=""> condiciones de uso</a>
-                <label> y </label>
-                <a href=""> politica de privacidad</a>
-                
-               </div>
-  
-  
-          <div className="app-container-register-CrearCuenta"> 
-            <ButtonRegister 
+        <div className="app-container-register-CrearCuenta">
+          <ButtonRegister
             name={nametState}
             lastname={lastNameState}
             dni={dniState}
@@ -326,15 +331,27 @@ export const FormRegister: React.FC<{
             password={passwordState}
             placeholder="CREAR CUENTA"
             terminos={terminoStatue}
-            handleClick={(name: boolean ,lastname : boolean , dni : boolean, phone: boolean, password: boolean, email: boolean,terminos : boolean)=>RegisterLogic(name,lastname,dni,phone,password,email,terminos)}
-       
-      />
-             
-
+            handleClick={(
+              name: boolean,
+              lastname: boolean,
+              dni: boolean,
+              phone: boolean,
+              password: boolean,
+              email: boolean,
+              terminos: boolean
+            ) =>
+              RegisterLogic(
+                name,
+                lastname,
+                dni,
+                phone,
+                password,
+                email,
+                terminos
+              )
+            }
+          />
         </div>
-         
-
-
       </div>
     </div>
   );

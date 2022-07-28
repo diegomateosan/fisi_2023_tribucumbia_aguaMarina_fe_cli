@@ -4,7 +4,10 @@ import { NavBarDefault } from "../../components/navBar/navBar";
 import Order from "../../components/order/order";
 import { Book, books } from "../../components/listCards/cards";
 
-export const OrderDetailsPage = () => {
+export const OrderDetailsPage: React.FC<{
+  userState: boolean;
+  setUserState: (txt: boolean) => void;
+}> = ({ userState, setUserState }) => {
   const [booksSeller, setBooksSeller] = useState<Array<Book>>([]);
 
   useEffect(() => {
@@ -12,7 +15,10 @@ export const OrderDetailsPage = () => {
   }, []);
   return (
     <div className="app-container-detail">
-      <NavBarDefault></NavBarDefault>
+      <NavBarDefault
+        userState={userState}
+        setUserState={(txt: boolean) => setUserState(txt)}
+      />
       <Order booksSeller={books}></Order>
       <Footer></Footer>
     </div>

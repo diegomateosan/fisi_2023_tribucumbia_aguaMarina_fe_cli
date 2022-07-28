@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./home.css";
 
@@ -8,10 +8,18 @@ import Cards from "../../components/listCards/cards";
 import { Footer } from "../../components/footer/footer";
 import { Categories } from "../../components/categories/category";
 
-export const Home = () => {
+export const Home: React.FC<{
+  userState: boolean;
+  setUserState: (txt: boolean) => void;
+}> = ({ userState, setUserState }) => {
+  const [loginState, setLoginState] = useState(false);
+
   return (
     <div className="app-container-home">
-      <NavBarDefault />
+      <NavBarDefault
+        userState={userState}
+        setUserState={(txt: boolean) => setUserState(txt)}
+      />
       <Slide></Slide>
       <Categories></Categories>
       <Cards></Cards>

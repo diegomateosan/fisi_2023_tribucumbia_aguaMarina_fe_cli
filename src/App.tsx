@@ -18,6 +18,7 @@ import { ModalLogin } from "./components/modals/modals";
 import { Footer } from "./components/footer/footer";
 import { Categories } from "./components/categories/category";
 import { OrderDetailsPage } from "./pages/orderDetails/orderDetail";
+import { History } from "./pages/history/history";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -25,10 +26,43 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {!userLoggedIn && <Route path="/" element={<Home />} />}
-
         {!userLoggedIn && (
-          <Route path="/orderdetails/:id" element={<OrderDetailsPage />} />
+          <>
+            <Route
+              path="/"
+              element={
+                <Home
+                  userState={userLoggedIn}
+                  setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                />
+              }
+            />
+
+            <Route
+              path="/orderdetails/:id"
+              element={
+                <OrderDetailsPage
+                  userState={userLoggedIn}
+                  setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                />
+              }
+            />
+          </>
+        )}
+
+        {userLoggedIn && (
+          <>
+            <Route
+              path="/"
+              element={
+                <Home
+                  userState={userLoggedIn}
+                  setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                />
+              }
+            />
+            <Route path="/history" element={<History />} />
+          </>
         )}
       </Routes>
     </BrowserRouter>

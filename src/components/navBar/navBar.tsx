@@ -13,12 +13,19 @@ import { BiCalendar } from "react-icons/bi";
 //CSS
 import "./navBar.css";
 
-export const NavBarDefault: React.FC<{}> = () => {
+export const NavBarDefault: React.FC<{
+  userState: boolean;
+  setUserState: (txt: boolean) => void;
+}> = ({ userState, setUserState }) => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
   const navigate = useNavigate();
 
   const [modalStateRegister, SetModalStateRegister] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
 
+  const MostrarState = () => {
+    alert(userState);
+  };
 
   return (
     <div className="app-container-navBar-header">
@@ -41,15 +48,23 @@ export const NavBarDefault: React.FC<{}> = () => {
         <div className="app-container-navBar-links">
           <div className="app-container-navBar-user">
             <BsPersonCircle className="icon icon-user" />
-            <p onClick={() => SetModalStateLogin(true)}>
-              {" "}
-              Iniciar Sesión / Registrarse
-            </p>
+            {userState ? (
+              <p onClick={MostrarState}>{emailValue}</p>
+            ) : (
+              <p onClick={() => SetModalStateLogin(true)}>
+                Iniciar Sesión / Registrarse
+              </p>
+            )}
+
             <ModalLogin
               state={modalStateLogin}
               handleChange={SetModalStateLogin}
               registerState={modalStateRegister}
               handleRegister={SetModalStateRegister}
+              userState={userState}
+              setUserState={(txt: boolean) => setUserState(txt)}
+              emailValue={emailValue}
+              setEmail={(txt: string) => setEmailValue(txt)}
             />
 
             <ModalRegister
