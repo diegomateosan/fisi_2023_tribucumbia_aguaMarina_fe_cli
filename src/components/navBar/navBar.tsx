@@ -16,10 +16,10 @@ import "./navBar.css";
 export const NavBarDefault: React.FC<{}> = () => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
   const navigate = useNavigate();
-=======
+
   const [modalStateRegister, SetModalStateRegister] = useState(false);
 
->>>>>>> b67135f32d3c131ce4142162bb77ddbe4f33f9f6
+
   return (
     <div className="app-container-navBar-header">
       <div className="app-container-navBar">
