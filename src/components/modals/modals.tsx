@@ -12,6 +12,7 @@ export const ModalLogin: React.FC<{
   setUserState: (txt: boolean) => void;
   emailValue: string;
   setEmail: (txt: string) => void;
+  setUserValue: (txt: string) => void;
 }> = ({
   state,
   handleChange,
@@ -19,8 +20,9 @@ export const ModalLogin: React.FC<{
   handleRegister,
   userState,
   setUserState,
-  emailValue,
   setEmail,
+  emailValue,
+  setUserValue,
 }) => {
   return (
     <>
@@ -35,6 +37,7 @@ export const ModalLogin: React.FC<{
             setUserState={(txt: boolean) => setUserState(txt)}
             emailValue={emailValue}
             setEmail={(txt: string) => setEmail(txt)}
+            setUserValue={(txt: string) => setUserValue(txt)}
           />
         </div>
       )}

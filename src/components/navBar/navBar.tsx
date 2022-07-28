@@ -16,12 +16,18 @@ import "./navBar.css";
 export const NavBarDefault: React.FC<{
   userState: boolean;
   setUserState: (txt: boolean) => void;
-}> = ({ userState, setUserState }) => {
+  setUserValue: (txt: string) => void;
+  userValue: string;
+}> = ({ userState, setUserState, setUserValue, userValue }) => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
   const navigate = useNavigate();
 
   const [modalStateRegister, SetModalStateRegister] = useState(false);
   const [emailValue, setEmailValue] = useState("");
+
+  const toHistory = () => {
+    navigate("/history");
+  };
 
   const MostrarState = () => {
     alert(userState);
@@ -49,7 +55,7 @@ export const NavBarDefault: React.FC<{
           <div className="app-container-navBar-user">
             <BsPersonCircle className="icon icon-user" />
             {userState ? (
-              <p onClick={MostrarState}>{emailValue}</p>
+              <p onClick={MostrarState}>{userValue}</p>
             ) : (
               <p onClick={() => SetModalStateLogin(true)}>
                 Iniciar Sesión / Registrarse
@@ -65,6 +71,7 @@ export const NavBarDefault: React.FC<{
               setUserState={(txt: boolean) => setUserState(txt)}
               emailValue={emailValue}
               setEmail={(txt: string) => setEmailValue(txt)}
+              setUserValue={(txt: string) => setUserValue(txt)}
             />
 
             <ModalRegister
@@ -77,7 +84,7 @@ export const NavBarDefault: React.FC<{
 
           <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />
-            <p>Historial de Préstamos</p>
+            <p onClick={toHistory}>Historial de Préstamos</p>
           </div>
 
           <div className="app-container-navBar-cart">

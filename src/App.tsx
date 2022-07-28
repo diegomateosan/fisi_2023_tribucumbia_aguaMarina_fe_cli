@@ -22,6 +22,7 @@ import { History } from "./pages/history/history";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userValue, setUserValue] = useState("");
 
   return (
     <BrowserRouter>
@@ -33,7 +34,9 @@ function App() {
               element={
                 <Home
                   userState={userLoggedIn}
+                  setUserValue={(txt: string) => setUserValue(txt)}
                   setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                  userValue={userValue}
                 />
               }
             />
@@ -44,6 +47,8 @@ function App() {
                 <OrderDetailsPage
                   userState={userLoggedIn}
                   setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                  setUserValue={(txt: string) => setUserValue(txt)}
+                  userValue={userValue}
                 />
               }
             />
@@ -58,12 +63,30 @@ function App() {
                 <Home
                   userState={userLoggedIn}
                   setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                  setUserValue={(txt: string) => setUserValue(txt)}
+                  userValue={userValue}
                 />
               }
             />
             <Route path="/history" element={<History />} />
+
+            <Route
+              path="/orderdetails/:id"
+              element={
+                <OrderDetailsPage
+                  userState={userLoggedIn}
+                  setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                  setUserValue={(txt: string) => setUserValue(txt)}
+                  userValue={userValue}
+                />
+              }
+            />
           </>
         )}
+        <Route
+          path="*"
+          element={<Navigate to={userLoggedIn ? "/history" : "/"} />}
+        />
       </Routes>
     </BrowserRouter>
   );

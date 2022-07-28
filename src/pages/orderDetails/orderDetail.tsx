@@ -7,7 +7,9 @@ import { Book, books } from "../../components/listCards/cards";
 export const OrderDetailsPage: React.FC<{
   userState: boolean;
   setUserState: (txt: boolean) => void;
-}> = ({ userState, setUserState }) => {
+  setUserValue: (txt: string) => void;
+  userValue: string;
+}> = ({ userState, setUserState, setUserValue, userValue }) => {
   const [booksSeller, setBooksSeller] = useState<Array<Book>>([]);
 
   useEffect(() => {
@@ -18,6 +20,8 @@ export const OrderDetailsPage: React.FC<{
       <NavBarDefault
         userState={userState}
         setUserState={(txt: boolean) => setUserState(txt)}
+        setUserValue={(txt: string) => setUserValue(txt)}
+        userValue={userValue}
       />
       <Order booksSeller={books}></Order>
       <Footer></Footer>

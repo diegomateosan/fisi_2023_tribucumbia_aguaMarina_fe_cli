@@ -16,6 +16,7 @@ export const FormLogin: React.FC<{
   handleRegister: (text: boolean) => void;
   emailValue: string;
   setEmail: (txt: string) => void;
+  setUserValue: (txt: string) => void;
 }> = ({
   state,
   handleChange,
@@ -25,6 +26,7 @@ export const FormLogin: React.FC<{
   setUserState,
   emailValue,
   setEmail,
+  setUserValue,
 }) => {
   const [InputValue, setInputValue] = useState("");
   const [InputState, setInputState] = useState(false);
@@ -43,7 +45,7 @@ export const FormLogin: React.FC<{
       alert("Sesión iniciada con éxito");
       handleChange(false);
       setUserState(true);
-      setEmail(InputValue);
+      setUserValue(InputValue);
     }
   };
 
