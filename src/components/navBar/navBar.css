@@ -21,6 +21,7 @@
 .app-container-navBar-Logo > img {
   width: 15rem;
   height: 5rem;
+  cursor: pointer;
 }
 
 .app-container-navBar > div {

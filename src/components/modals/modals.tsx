@@ -1,8 +1,6 @@
 import React from "react";
 import { FormLogin } from "../form/form";
 
-import { FcUndo } from "react-icons/fc";
-
 import "./modals.css";
 
 export const ModalLogin: React.FC<{

@@ -4,7 +4,7 @@ import "./home.css";
 
 import { NavBarDefault } from "../../components/navBar/navBar";
 import { Slide } from "../../components/slides/slide";
-import Cards from "../../components/cards/cards";
+import Cards from "../../components/listCards/cards";
 import { Footer } from "../../components/footer/footer";
 import { Categories } from "../../components/categories/category";
 

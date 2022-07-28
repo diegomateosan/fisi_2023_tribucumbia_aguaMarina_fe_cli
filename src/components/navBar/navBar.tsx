@@ -1,5 +1,6 @@
 //Librerias
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //Componentes
 import { Searchbox } from "../searchBox/searchBox";
@@ -14,32 +15,33 @@ import "./navBar.css";
 
 export const NavBarDefault: React.FC<{}> = () => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className="app-container-navBar-header">
       <div className="app-container-navBar">
-            <div className="app-container-navBar-Logo">
-              <img
-                src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
-                alt="Villalibros Logo"
-                title="Logo Villalibros"
-              />
-            </div>
+        <div className="app-container-navBar-Logo">
+          <img
+            src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
+            alt="Villalibros Logo"
+            title="Logo Villalibros"
+            onClick={() => navigate("/")}
+          />
+        </div>
 
-            <div className="app-container-navBar-searchbox">
-              <Searchbox
-                placeholder="Buscar por líbro, autor o categoría"
-                handleSearch={() => alert("Buscado")}
-              />
-            </div>
+        <div className="app-container-navBar-searchbox">
+          <Searchbox
+            placeholder="Buscar por líbro, autor o categoría"
+            handleSearch={() => alert("Buscado")}
+          />
+        </div>
 
         <div className="app-container-navBar-links">
           <div className="app-container-navBar-user">
-            <BsPersonCircle
-              className="icon icon-user"
-              
-            />
-            <p onClick={() => SetModalStateLogin(true)}> Iniciar Sesión / Registrarse</p>
+            <BsPersonCircle className="icon icon-user" />
+            <p onClick={() => SetModalStateLogin(true)}>
+              {" "}
+              Iniciar Sesión / Registrarse
+            </p>
             <ModalLogin
               state={modalStateLogin}
               handleChange={SetModalStateLogin}
@@ -55,7 +57,6 @@ export const NavBarDefault: React.FC<{}> = () => {
             <BsCart className="icon icon-cart" />
             <p>Carrito de Compras</p>
           </div>
-
         </div>
       </div>
     </div>

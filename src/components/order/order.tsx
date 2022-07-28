@@ -1,32 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./order.css";
+import { Props } from "../card/card";
+import { calculatePriceWithDiscount } from "../card/card";
 
-const Order = () => {
+const Order: React.FC<Props> = ({ booksSeller }) => {
+  const { id } = useParams();
+  const idNumber = Number(id);
+  let book;
+  book = booksSeller.find((book) => book.id === idNumber);
+
+  const [isReadMoreShown, setReadMoreShown] = useState<boolean>(false);
+
+  const toggleBtn = () => {
+    setReadMoreShown((prevState) => !prevState);
+  };
+
   return (
     <Fragment>
       <main>
-        <div className="container">
+        <div className="wrapper">
           <div className="container-info">
             <div className="container-info-img">
-              <img
-                src="https://iberoperu.vtexassets.com/arquivos/ids/265777-1200-1700?v=637925860185530000&width=1200&height=1700&aspect=true"
-                alt="logo-libro"
-              />
+              <img src={book!.image} alt="logo-libro" />
             </div>
-
             <div className="description-total">
               <div className="description-total-title">
                 <div className="links">
                   <a id="a1" href={'"#"'}>
-                    5% DSTO
+                    {book!.percentDiscount}% DSTO
                   </a>
                   <a id="a2" href={'"#"'}>
                     PREVENTA
                   </a>
                 </div>
                 <div className="info-autor">
-                  <h1>UNA SOMBRA EN LAS BRASAS</h1>
-                  <p>JENNIFER L. ARMENTROUT</p>
+                  <h1>{book!.title}</h1>
+                  <p>{book!.author}</p>
                   <hr />
                 </div>
               </div>
@@ -36,98 +46,134 @@ const Order = () => {
                   <li className="list">
                     <div className="des-izq">SKU:</div>
                     <div className="des-der">
-                      <span>383583</span>
+                      <span>{book!.sku}</span>
                     </div>
                   </li>
                   <li className="list">
-                    <div className="des-izq">ISNM:</div>
+                    <div className="des-izq">ISBN:</div>
                     <div className="des-der">
-                      <span>9786124894404</span>
+                      <span>{book!.isbn}</span>
                     </div>
                   </li>
                   <li className="list">
                     <div className="des-izq">Autor:</div>
                     <div className="des-der">
-                      <span>JENNIFER L. ARMENTROUT</span>
+                      <span>{book!.author}</span>
                     </div>
                   </li>
                   <li className="list">
                     <div className="des-izq">Editorial:</div>
                     <div className="des-der">
-                      <span>PUCH</span>
+                      <span>{book!.editorial}</span>
                     </div>
                   </li>
                   <li className="list">
                     <div className="des-izq">Año: </div>
                     <div className="des-der">
-                      <span>2022</span>
+                      <span>{book!.anyo}</span>
                     </div>
                   </li>
                   <li className="list">
-                    <div className="des-izq">Páginas: </div>
-                    <div className="des-der">
-                      <span>800</span>
-                    </div>
+                    {book!.pages && (
+                      <>
+                        <div className="des-izq">Páginas: </div>
+                        <div className="des-der">
+                          <span>{book!.pages}</span>
+                        </div>
+                      </>
+                    )}
                   </li>
                   <li className="list">
                     <div className="des-izq">Idioma: </div>
                     <div className="des-der">
-                      <span>Español</span>
+                      <span>{book!.language}</span>
                     </div>
                   </li>
                   <li className="list">
-                    <div className="des-izq">Peso:</div>
-                    <div className="des-der">
-                      <span>0.84Kg</span>
-                    </div>
+                    {book!.weight && (
+                      <>
+                        <div className="des-izq">Peso:</div>
+                        <div className="des-der">
+                          <span>{book!.weight}Kg</span>
+                        </div>
+                      </>
+                    )}
                   </li>
                   <li className="list">
-                    <div className="des-izq">Ancho:</div>
-                    <div className="des-der">
-                      <span>14cm</span>
-                    </div>
+                    {book!.width && (
+                      <>
+                        <div className="des-izq">Ancho:</div>
+                        <div className="des-der">
+                          <span>{book!.width}cm</span>
+                        </div>
+                      </>
+                    )}
                   </li>
                   <li className="list">
-                    <div className="des-izq">Alto:</div>
-                    <div className="des-der">
-                      <span>21cm</span>
-                    </div>
+                    {book!.height && (
+                      <>
+                        <div className="des-izq">Alto:</div>
+                        <div className="des-der">
+                          <span>{book!.height}cm</span>
+                        </div>
+                      </>
+                    )}
                   </li>
                   <li className="list">
                     <div className="des-izq">Edad:</div>
                     <div className="des-der">
-                      <span>JUVENIL</span>
+                      <span>{book!.age}</span>
                     </div>
                   </li>
                 </div>
 
                 <div className="right">
                   <div className="right-contenido">
-                    <p>
-                      {" "}
-                      La autora superventas del New York Times Jennifer L,
-                      Armentrout regresa con el volumen uno de la nueva y
-                      apasionante saga De carne y fuego, ambientada en el amado
-                      universo de De sangre y cenizas, Nacida envuelta en el
-                      velo de los Primigenios, una Doncella como prometieron los
-                      Hados, el futuro de Seraphena Mierel nunca ha sido suyo,
-                      Elegida antes de nacer para cumplir el trato desesperado
-                      que aceptó su antepasado para salvar a su gente, Sera debe
-                      dejar atrás su vida y ofrecerse al Primigenio de la Muerte
-                      como su consorte.{" "}
-                    </p>
+                    {isReadMoreShown ? (
+                      <p> {book!.description}</p>
+                    ) : (
+                      <p>{book!.description.substring(0, 500)} ...</p>
+                    )}
                   </div>
+                  <button className="btn-read-more-less" onClick={toggleBtn}>
+                    {isReadMoreShown ? "Mostar menos" : "Mostrar más"}
+                  </button>
 
                   <div className="right-precio">
                     <div className="precio-descuento">
-                      <p>S/ 90.00</p>
-                      <h3>S/ 72.00</h3>
+                      {book!.percentDiscount ? (
+                        <>
+                          <p className="price-before-discount">
+                            S/ {book!.price}
+                          </p>
+                          <h3 className="price">
+                            S/{" "}
+                            {calculatePriceWithDiscount(
+                              book!.price,
+                              book!.percentDiscount
+                            )}
+                          </h3>
+                        </>
+                      ) : (
+                        <p className="price">S/ {book!.price}</p>
+                      )}
                     </div>
 
-                    <div className="ahorra">
-                      <span></span>
-                      <a href={'"#"'}>AHORRAS: S/ 18.00</a>
-                    </div>
+                    {book!.percentDiscount && (
+                      <div className="ahorra">
+                        <span></span>
+                        <a href={'"#"'}>
+                          AHORRAS: S/{" "}
+                          {(
+                            book!.price -
+                            calculatePriceWithDiscount(
+                              book!.price,
+                              book!.percentDiscount
+                            )
+                          ).toFixed(2)}
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   <div className="comprar">

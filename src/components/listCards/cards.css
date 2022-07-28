@@ -1,0 +1,16 @@
+.secc {
+  width: 100vw;
+  margin-bottom: 2rem;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.container > h1 {
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+/* ************** */

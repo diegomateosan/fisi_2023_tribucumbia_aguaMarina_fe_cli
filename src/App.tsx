@@ -25,7 +25,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {!userLoggedIn && <Route path="/" element={<OrderDetailsPage />} />}
+        {!userLoggedIn && <Route path="/" element={<Home />} />}
+
+        {!userLoggedIn && (
+          <Route path="/orderdetails/:id" element={<OrderDetailsPage />} />
+        )}
       </Routes>
     </BrowserRouter>
   );
