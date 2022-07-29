@@ -85,7 +85,7 @@ export const books = [
     id: 4,
     title: "LOS HEREDEROS DE FUJIMORI",
     description:
-      "El esperado libro sobre la vida política de los hijos de Alberto Fujimori por el autor de El último dictador El periodista José Alejandro Godoy vuelve con la exhaustiva investigación sobre el legado político de los hijos de Alberto Fujimori. Este es el libro definitivo que reúne los perfiles y los sucesos de una familia que cambió la historia de la política en el Perú. Esta edición completa, que sucede al bestseller El último dictador, narra los episodios mediáticos y políticos en donde participaron sus hijos, principalmente Keiko y Kenji Fujimori. Entre desastres naturales, presidencias truncas, sobornos millonarios, asilos, indultos y carcelerías de alto queda claro que este libro recupera la memoria de los últimos años.",
+      "El esperado libro sobre la vida política de los hijos de Alberto Fujimori por el autor de El último dictador El periodista José Alejandro Godoy vuelve con la exhaustiva investigación sobre el legado político de los hijos de Alberto Fujimori. Este es el libro definitivo que reúne los perfiles y los sucesos de una familia que cambió la historia de la política en el Perú. Esta edición completa, que sucede al bestseller El último dictador, narra los episodios mediáticos y políticos en donde participaron sus hijos, principalmente Keiko y Kenji Fujimori. Entre desastres naturales, presidencias truncas, sobornos millonarios, asilos, indultos y carcelerías de alto queda claro que este libro recupera la memoria de los últimos años. ",
     author: "JOSÉ ALEJANDRO GODOY",
     price: 103.2,
     image:
