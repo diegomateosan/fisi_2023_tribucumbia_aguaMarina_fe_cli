@@ -41,6 +41,7 @@ export const NavBarDefault: React.FC<{
             src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
             alt="Villalibros Logo"
             title="Logo Villalibros"
+            onClick={()=> navigate("/")}
           />
         </div>
 

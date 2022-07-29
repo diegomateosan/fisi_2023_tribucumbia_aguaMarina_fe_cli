@@ -68,7 +68,13 @@ function App() {
                 />
               }
             />
-            <Route path="/history" element={<History />} />
+            <Route path="/history" element={<History
+              userState={userLoggedIn}
+              setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+              setUserValue={(txt: string) => setUserValue(txt)}
+              userValue={userValue}
+            
+            />} />
 
             <Route
               path="/orderdetails/:id"
