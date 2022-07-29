@@ -32,16 +32,22 @@
   cursor: pointer;
 }
 
-.app-container-navBar-user {
-  cursor: pointer;
-}
-
 .app-container-navBar-user,
 .app-container-navBar-history,
 .app-container-navBar-cart {
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin: 5px;
+}
+
+.app-container-navBar-user:hover,
+.app-container-navBar-history:hover,
+.app-container-navBar-cart:hover {
+  transition: 0.4s ease all;
+  color: var(--color-icon);
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 .app-container-navBar-user > p,

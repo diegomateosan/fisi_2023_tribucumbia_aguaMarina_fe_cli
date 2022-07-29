@@ -2,6 +2,8 @@ import CartItem from "../cartItem/cartItem";
 import { FcUndo } from "react-icons/fc";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import "./shoppingCart.css";
+import { books } from "../listCards/cards";
+import { calculatePriceWithDiscount } from "../card/card";
 
 type ShoppingCartProps = {
   isOpen: boolean;
@@ -34,14 +36,48 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
               })}
             </div>
             <div className="shopping-cart-footer">
-              <div className="shopping-cart-footer subtotal">
-                <p>Subtotal</p>
-                <span>{}</span>
+              <div className="shopping-cart-footer-subtotal">
+                <span>Total</span>
+                <span>
+                  S/{" "}
+                  {cartItems
+                    .reduce((subTotal, cartItem) => {
+                      const item = books.find((i) => i.id === cartItem.id);
+                      let realPrice;
+                      if (item?.percentDiscount) {
+                        realPrice = calculatePriceWithDiscount(
+                          item.price,
+                          item.percentDiscount
+                        );
+                      } else {
+                        realPrice = item?.price;
+                      }
+                      return subTotal + (realPrice || 0) * cartItem.quantity;
+                    }, 0)
+                    .toFixed(2)}
+                </span>
               </div>
 
               <div className="shopping-cart-footer-discounts">
-                <p>Descuentos</p>
-                <span> - {}</span>
+                <span>
+                  Gracias a los descuentos usted ha ahorrado un total de S/{" "}
+                  {cartItems
+                    .reduce((descuentoTotal, cartItem) => {
+                      const item = books.find((i) => i.id === cartItem.id);
+                      let realPrice, descuento;
+                      if (item?.percentDiscount) {
+                        realPrice = calculatePriceWithDiscount(
+                          item.price,
+                          item.percentDiscount
+                        );
+                        descuento = item.price - realPrice;
+                      }
+                      return (
+                        descuentoTotal + (descuento || 0) * cartItem.quantity
+                      );
+                    }, 0)
+                    .toFixed(2)}
+                </span>
               </div>
               <button className="shopping-cart-footer-btn">
                 Finalizar compra

@@ -7,6 +7,7 @@ import {
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { books } from "../listCards/cards";
 import "./cartItem.css";
+import { calculatePriceWithDiscount } from "../card/card";
 
 type CartItemProps = {
   id: number;
@@ -26,7 +27,30 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
         </div>
         <div className="cart-item-info">
           <h1>{item.title}</h1>
-          <span>S/ {item.price}</span>
+          <div className="cart-item-prices">
+            {item.percentDiscount ? (
+              <>
+                <span className="cart-item-price">
+                  S/{" "}
+                  {calculatePriceWithDiscount(item.price, item.percentDiscount)}
+                </span>
+                <span>
+                  S/{" "}
+                  {(
+                    calculatePriceWithDiscount(
+                      item.price,
+                      item.percentDiscount
+                    ) * quantity
+                  ).toFixed(2)}
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="cart-item-price">S/ {item.price}</span>
+                <span>S/ {(item.price * quantity).toFixed(2)}</span>
+              </>
+            )}
+          </div>
           <div className="cart-item-info-quantity">
             {quantity > 0 && (
               <>

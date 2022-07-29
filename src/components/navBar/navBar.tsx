@@ -55,15 +55,20 @@ export const NavBarDefault: React.FC<{
         </div>
 
         <div className="app-container-navBar-links">
-          <div className="app-container-navBar-user">
-            <BsPersonCircle className="icon icon-user" />
-            {userState ? (
-              <p onClick={MostrarState}>{userValue}</p>
-            ) : (
-              <p onClick={() => SetModalStateLogin(true)}>
-                Iniciar Sesión / Registrarse
-              </p>
-            )}
+          <div className="app-container-navBar-login-register">
+            <div className="app-container-navBar-user">
+              <BsPersonCircle
+                className="icon icon-user"
+                onClick={() => SetModalStateLogin(true)}
+              />
+              {userState ? (
+                <p onClick={MostrarState}>{userValue}</p>
+              ) : (
+                <p onClick={() => SetModalStateLogin(true)}>
+                  Iniciar Sesión / Registrarse
+                </p>
+              )}
+            </div>
 
             <ModalLogin
               state={modalStateLogin}
