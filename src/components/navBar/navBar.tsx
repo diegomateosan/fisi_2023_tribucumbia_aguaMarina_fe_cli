@@ -12,13 +12,14 @@ import { BiCalendar } from "react-icons/bi";
 
 //CSS
 import "./navBar.css";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export const NavBarDefault: React.FC<{}> = () => {
   const [modalStateLogin, SetModalStateLogin] = useState(false);
-  const navigate = useNavigate();
 
   const [modalStateRegister, SetModalStateRegister] = useState(false);
 
+  const { openCart, cartQuantity } = useShoppingCart();
 
   return (
     <div className="app-container-navBar-header">
@@ -65,8 +66,11 @@ export const NavBarDefault: React.FC<{}> = () => {
             <p>Historial de Préstamos</p>
           </div>
 
-          <div className="app-container-navBar-cart">
+          <div className="app-container-navBar-cart" onClick={openCart}>
             <BsCart className="icon icon-cart" />
+            {/* <div className="counter-orders">
+
+            </div> */}
             <p>Carrito de Compras</p>
           </div>
         </div>

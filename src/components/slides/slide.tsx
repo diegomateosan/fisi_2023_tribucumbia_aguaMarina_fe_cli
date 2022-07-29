@@ -78,25 +78,16 @@ export const Slide: React.FC<{}> = ({}) => {
           <a href="https://www.google.com">
             <img src={slide1} alt="Slide 1"></img>
           </a>
-          <div className="app-container-slides__text">
-            <p>15% de descuento en productos</p>
-          </div>
         </div>
         <div className="app-container-slide">
           <a href="https://www.google.com">
             <img src={slide2} alt="Slide 1"></img>
           </a>
-          <div className="app-container-slides__text">
-            <p>15% de descuento en productos</p>
-          </div>
         </div>
         <div className="app-container-slide">
           <a href="https://www.google.com">
             <img src={slide3} alt="Slide 1"></img>
           </a>
-          <div className="app-container-slides__text">
-            <p>15% de descuento en productos</p>
-          </div>
         </div>
       </div>
       <div className="app-container-slide-controls">

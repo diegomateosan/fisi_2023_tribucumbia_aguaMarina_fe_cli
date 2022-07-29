@@ -1,0 +1,52 @@
+.app-container-shopping-cart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.wrapper-shopping-cart {
+  background-color: white;
+  width: 25%;
+  height: 100vh;
+  padding-left: 1rem;
+  position: absolute;
+  right: 0;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-cart-head {
+  flex: 0.1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  /*   background-color: aquamarine; */
+}
+
+.shopping-cart-head > h1 {
+  font-size: 1.2rem;
+}
+
+.shopping-cart-body {
+  flex: 1;
+  /*  background-color: red; */
+  overflow-y: scroll;
+}
+
+.shopping-cart-footer {
+  flex: 0.3;
+  /*   background-color: aqua; */
+}
+
+.shopping-card-head-return {
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+}
