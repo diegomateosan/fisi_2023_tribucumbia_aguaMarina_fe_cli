@@ -1,8 +1,5 @@
-import {
-  AiFillMinusCircle,
-  AiFillPlusCircle,
-  AiFillDelete,
-} from "react-icons/ai";
+import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
+import { FiDelete } from "react-icons/fi";
 
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { books } from "../listCards/cards";
@@ -30,11 +27,11 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
           <div className="cart-item-prices">
             {item.percentDiscount ? (
               <>
-                <span className="cart-item-price">
+                <span className="cart-item-price-unique">
                   S/{" "}
                   {calculatePriceWithDiscount(item.price, item.percentDiscount)}
                 </span>
-                <span>
+                <span className="cart-item-price-subtotal">
                   S/{" "}
                   {(
                     calculatePriceWithDiscount(
@@ -46,8 +43,10 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
               </>
             ) : (
               <>
-                <span className="cart-item-price">S/ {item.price}</span>
-                <span>S/ {(item.price * quantity).toFixed(2)}</span>
+                <span className="cart-item-price-unique">S/ {item.price}</span>
+                <span className="cart-item-price-subtotal">
+                  S/ {(item.price * quantity).toFixed(2)}
+                </span>
               </>
             )}
           </div>
@@ -64,17 +63,17 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
             )}
             <AiFillPlusCircle
               className="cart-item-icon-increase"
-              title="Aumentar 1 libro más"
+              title="Aumentar 1 libro"
               onClick={() => increaseCartQuantity(item.id)}
             ></AiFillPlusCircle>
           </div>
         </div>
         <div className="cart-item-btn-delete">
-          <AiFillDelete
+          <FiDelete
             className="icon-delete-item"
             title="Eliminar libro del carrito de compras"
             onClick={() => removeFromCart(item.id)}
-          ></AiFillDelete>
+          ></FiDelete>
         </div>
       </div>
     </div>

@@ -1,12 +1,18 @@
 .app-container-shopping-cart {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   left: 0;
   top: 0;
   z-index: 100;
+}
+
+.wrapper-close-shopping-cart {
+  position: fixed;
+  width: 75%;
+  height: 100vh;
 }
 
 .wrapper-shopping-cart {
@@ -68,6 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .shopping-cart-footer-discounts {

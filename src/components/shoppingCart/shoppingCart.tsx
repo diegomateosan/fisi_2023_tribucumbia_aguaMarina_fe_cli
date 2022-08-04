@@ -10,12 +10,16 @@ type ShoppingCartProps = {
 };
 
 const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
-  const { closeCart, cartItems, getItemQuantity } = useShoppingCart();
+  const { closeCart, cartItems } = useShoppingCart();
 
   return (
     <>
       {isOpen && (
         <div className="app-container-shopping-cart">
+          <div
+            className="wrapper-close-shopping-cart"
+            onClick={closeCart}
+          ></div>
           <div className="wrapper-shopping-cart">
             <div className="shopping-cart-head">
               <FcUndo
@@ -28,11 +32,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 
             <div className="shopping-cart-body">
               {cartItems.map((item) => {
-                return (
-                  <>
-                    <CartItem key={item.id} {...item}></CartItem>
-                  </>
-                );
+                return <CartItem key={item.id} {...item}></CartItem>;
               })}
             </div>
             <div className="shopping-cart-footer">

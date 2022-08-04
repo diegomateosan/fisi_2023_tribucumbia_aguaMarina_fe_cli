@@ -35,8 +35,13 @@
   justify-content: space-between;
 }
 
-.cart-item-price {
+.cart-item-price-unique {
   font-size: 12px;
+}
+
+.cart-item-price-subtotal {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .cart-item-info-quantity {
@@ -45,6 +50,7 @@
   justify-content: start;
   gap: 20px;
 }
+
 .cart-item-icon-deacrease {
   color: orange;
   cursor: pointer;
@@ -58,6 +64,7 @@
 .cart-item-btn-delete {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .icon-delete-item {

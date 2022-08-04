@@ -18,31 +18,31 @@ export const Footer: React.FC<{}> = ({}) => {
 
         <div className="partFooter">
           <h4>2022 Biblioteca Villalibros</h4>
-          <FaCopyright className="i-copyright"></FaCopyright>
+          <FaCopyright className="i-copyright icon-foot"></FaCopyright>
         </div>
 
         <div className="partFooter">
           <h4>Libro de recomendaciones</h4>
-          <BsBook className="icon"></BsBook>
+          <BsBook className="icon icon-foot"></BsBook>
         </div>
 
         <div className="partFooter">
           <h4>Politica de privacidad</h4>
-          <BsShieldLock className="icon"></BsShieldLock>
+          <BsShieldLock className="icon icon-foot"></BsShieldLock>
         </div>
 
         <div className="partFooter">
           <h4>Redes sociales</h4>
-          <FaFacebookF className="icon icon-sm"></FaFacebookF>
-          <BsInstagram className="icon icon-sm"></BsInstagram>
-          <FiTwitter className="icon icon-sm"></FiTwitter>
-          <FiYoutube className="icon icon-sm"></FiYoutube>
+          <FaFacebookF className="icon icon-foot icon-sm"></FaFacebookF>
+          <BsInstagram className="icon icon-foot icon-sm"></BsInstagram>
+          <FiTwitter className="icon icon-foot icon-sm"></FiTwitter>
+          <FiYoutube className="icon icon-foot icon-sm"></FiYoutube>
         </div>
 
         <div className="partFooter">
           <h4>Ayuda</h4>
           <div className="ayuda">
-            <FiHelpCircle className="icon"></FiHelpCircle>
+            <FiHelpCircle className="icon icon-foot"></FiHelpCircle>
           </div>
         </div>
       </div>

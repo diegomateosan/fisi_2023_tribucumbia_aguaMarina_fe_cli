@@ -90,9 +90,9 @@ export const NavBarDefault: React.FC<{
             />
           </div>
 
-          <div className="app-container-navBar-history">
+          <div className="app-container-navBar-history" onClick={toHistory}>
             <BiCalendar className="icon icon-history" />
-            <p onClick={toHistory}>Historial de Préstamos</p>
+            <p>Historial de Préstamos</p>
           </div>
 
           <div className="app-container-navBar-cart" onClick={openCart}>

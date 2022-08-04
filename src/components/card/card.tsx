@@ -39,14 +39,7 @@ const Card: React.FC<Props> = ({ booksSeller }) => {
     navigate(`/orderdetails/${id}`);
   };
 
-  const { openCart, cartQuantity } = useShoppingCart();
-
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
-  } = useShoppingCart();
+  const { openCart, increaseCartQuantity } = useShoppingCart();
 
   function openCartAndIncreaseQ(id: number) {
     increaseCartQuantity(id);
@@ -56,7 +49,6 @@ const Card: React.FC<Props> = ({ booksSeller }) => {
   return (
     <div className="container-cards">
       {booksSeller.map((book) => {
-        const quantity = getItemQuantity(book.id);
         return (
           <div key={book.id} className="card">
             <div className="title-prevent">
