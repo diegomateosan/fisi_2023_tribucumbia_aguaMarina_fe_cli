@@ -20,7 +20,7 @@ export const Searchbox: React.FC<{
         }}
       />
 
-      <BiSearchAlt className="icon-search" size={20} />
+      <BiSearchAlt className="icon-search" />
     </div>
   );
 };

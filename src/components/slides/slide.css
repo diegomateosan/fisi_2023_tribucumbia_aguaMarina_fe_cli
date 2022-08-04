@@ -50,6 +50,12 @@
   transition: 0.3 ease all;
 }
 
+.slide-arrow {
+  color: black;
+  width: 30px;
+  height: 30px;
+}
+
 .app-container-slide-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }

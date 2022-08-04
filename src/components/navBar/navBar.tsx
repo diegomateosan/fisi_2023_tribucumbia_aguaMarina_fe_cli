@@ -96,10 +96,12 @@ export const NavBarDefault: React.FC<{
           </div>
 
           <div className="app-container-navBar-cart" onClick={openCart}>
-            <BsCart className="icon icon-cart" />
-            {/* <div className="counter-orders">
-
-            </div> */}
+            <div className="counter-orders">
+              <BsCart className="icon icon-cart" />
+              {cartQuantity > 0 && (
+                <span className="cart-badge">{cartQuantity}</span>
+              )}
+            </div>
             <p>Carrito de Compras</p>
           </div>
         </div>

@@ -12,11 +12,14 @@
 .app-container-searchbox > input {
   border: none;
   outline: none;
-  min-width: 25rem;
+  /*  min-width: 25rem; */
+  min-width: 90%;
 }
 
 .icon-search {
   position: absolute;
+  width: 20px;
+  height: 20px;
   right: 10px;
   min-width: 1rem;
   color: white;

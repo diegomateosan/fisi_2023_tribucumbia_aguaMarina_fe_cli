@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import slide1 from "../../images/slide1.jpg";
 import slide2 from "../../images/slide2.jpg";
 import slide3 from "../../images/slide3.jpg";
-import { CgArrowRightO, CgArrowLeftO } from "react-icons/cg";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./slide.css";
 
 export const Slide: React.FC<{}> = ({}) => {
@@ -75,30 +75,30 @@ export const Slide: React.FC<{}> = ({}) => {
     <div className="app-container-slides">
       <div className="app-container-slide-show" ref={slideShowRef}>
         <div className="app-container-slide">
-          <a href="https://www.google.com">
+          <a href="'#'">
             <img src={slide1} alt="Slide 1"></img>
           </a>
         </div>
         <div className="app-container-slide">
-          <a href="https://www.google.com">
+          <a href="'#'">
             <img src={slide2} alt="Slide 1"></img>
           </a>
         </div>
         <div className="app-container-slide">
-          <a href="https://www.google.com">
+          <a href="'#'">
             <img src={slide3} alt="Slide 1"></img>
           </a>
         </div>
       </div>
       <div className="app-container-slide-controls">
         <button className="app-container-slide-button" onClick={previous}>
-          <CgArrowLeftO size={40}></CgArrowLeftO>
+          <IoIosArrowBack className="slide-arrow" />
         </button>
         <button
           className="app-container-slide-button button-right"
           onClick={next}
         >
-          <CgArrowRightO size={40}></CgArrowRightO>
+          <IoIosArrowForward className="slide-arrow" />
         </button>
       </div>
     </div>
