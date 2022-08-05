@@ -36,10 +36,10 @@ export const FormLogin: React.FC<{
 
   const loginLogic = (password: boolean, email: boolean) => {
     if (password === false) {
-      alert("Password no válida");
+      alert("Contraseña no válida, revisar el error indicado.");
     }
     if (email === false) {
-      alert("Correo no válido");
+      alert("Correo no válido, revisar el error indicado.");
     }
     if (email === true && password === true) {
       alert("Sesión iniciada con éxito");
@@ -79,7 +79,7 @@ export const FormLogin: React.FC<{
           tipo="text"
           label="Correo Electronico"
           placeholder="Ejemplo : alguien@gmail.com"
-          leyendaError="Email no valido "
+          leyendaError="El correo no cuenta con la estructura: alguien@gmail.com"
           expresionRegular={/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/}
         />
 
@@ -90,7 +90,7 @@ export const FormLogin: React.FC<{
           cambiarCampo={(txt: string) => setPasswordValue(txt)}
           label="Contraseña"
           placeholder="Debe contener entre 8 a 20 caracteres"
-          leyendaError="Contraseña no válida"
+          leyendaError="La contraseña debe contener entre 8 a 20 caracteres."
           expresionRegular={/^.{8,25}$/}
         />
 
@@ -156,27 +156,29 @@ export const FormRegister: React.FC<{
     terminos: boolean
   ) => {
     if (name === false) {
-      alert("Nombre no valido");
+      alert("Nombre no valido, revisar el error indicado.");
     }
     if (lastname === false) {
-      alert("Apellido no valido");
+      alert("Apellido no valido, revisar el error indicado.");
     }
     if (dni === false) {
-      alert("DNI no valido");
+      alert("Número de DNI no valido, revisar el error indicado.");
     }
     if (phone === false) {
-      alert("Celular no valido");
+      alert("Número de celular no valido, revisar el error indicado.");
     }
     if (email === false) {
-      alert("email no valido");
+      alert("Correo no valido, revisar el error indicado.");
     }
 
     if (password === false) {
-      alert("Contraseña no valido");
+      alert("Contraseña no valida, revisar el error indicado.");
     }
 
     if (terminos === false) {
-      alert("Terminos y condiciones no aceptados");
+      alert(
+        "Terminos y condiciones no aceptados, por favor verifique la casilla."
+      );
     }
 
     if (
@@ -232,7 +234,7 @@ export const FormRegister: React.FC<{
             tipo="text"
             label="Nombres"
             placeholder="Ejemplo : Gustavo Adrián"
-            leyendaError="Error: solo debe contener caractéres alfabéticos"
+            leyendaError="Error: solo debe contener caracteres alfabéticos"
             expresionRegular={/^[a-zA-ZÀ-ÿ\s]{1,40}$/}
           />
 
@@ -244,7 +246,7 @@ export const FormRegister: React.FC<{
             tipo="text"
             label="Apellidos"
             placeholder="Ejemplo : Pazos Medina"
-            leyendaError="Error: solo debe contener caractéres alfabéticos"
+            leyendaError="Error: solo debe contener caracteres alfabéticos"
             expresionRegular={/^[a-zA-ZÀ-ÿ\s]{1,40}$/}
           />
         </div>
@@ -258,7 +260,7 @@ export const FormRegister: React.FC<{
             tipo="text"
             label="Correo Electrónico"
             placeholder="Ejemplo : alguien@gmail.com"
-            leyendaError="Error: Correo no válido"
+            leyendaError="Debe seguir la estructura: alguien@gmail.com"
             expresionRegular={
               /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
             }
@@ -305,7 +307,7 @@ export const FormRegister: React.FC<{
               cambiarCampo={(txt: string) => setPasswordValue(txt)}
               label="Contraseña"
               placeholder="Debe contener entre 8 a 20 caracteres"
-              leyendaError="Contraseña no válida"
+              leyendaError="La contraseña debe contener entre 8 a 20 caracteres."
               expresionRegular={/^.{8,25}$/}
             />
           </div>

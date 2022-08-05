@@ -89,10 +89,15 @@ export const NavBarDefault: React.FC<{
               handleRegister={SetModalStateRegister}
             />
           </div>
-
-          <div className="app-container-navBar-history" onClick={toHistory}>
+          <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />
-            <p>Historial de Préstamos</p>
+            {userState ? (
+              <p onClick={toHistory}>Historial de Préstamos</p>
+            ) : (
+              <p onClick={() => alert("Debe Iniciar sesión")}>
+                Historial de Préstamos
+              </p>
+            )}
           </div>
 
           <div className="app-container-navBar-cart" onClick={openCart}>
