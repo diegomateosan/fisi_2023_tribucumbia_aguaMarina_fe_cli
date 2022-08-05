@@ -274,7 +274,7 @@ export const FormRegister: React.FC<{
             tipo="text"
             label="DNI"
             placeholder="Debe contener 8 caracteres numéricos"
-            leyendaError="Error: DNI no válido"
+            leyendaError="Debe contener 8 números"
             expresionRegular={/^\d{8}$/}
           />
         </div>
@@ -288,7 +288,7 @@ export const FormRegister: React.FC<{
             tipo="text"
             label="Número de celular"
             placeholder="Debe contener 9 caracteres numéricos"
-            leyendaError="Error: Número no válido"
+            leyendaError="Debe contener 9 números"
             expresionRegular={/^\d{9}$/}
           />
           <div className="app-container-gender">
