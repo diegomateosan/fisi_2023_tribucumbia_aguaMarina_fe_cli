@@ -13,9 +13,18 @@
   margin-top: 50px;
 }
 
-.app-container-searchbox{
+.app-container-history-searchbox{
   display: flex;
-  width: 70%;
-  margin-left: 50px; 
+  width: 50%; 
+  padding-left: 10%;
+}
+
+.app-container-history-searchbox> div {
+  padding-left: 0;
+}
+
+.app-container-History-footer{
+margin-top: 20px;
+
 }
 

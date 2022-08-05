@@ -26,7 +26,7 @@ export const History: React.FC<{
         userValue={userValue}
       />
       <HistoryHeader />
-      <div className="app-container-searchbox">
+      <div className="app-container-history-searchbox">
         <Searchbox
           placeholder="Filtrar por nombre, categoria, fecha, etc."
           handleSearch={() => alert("Buscado")}
@@ -36,8 +36,12 @@ export const History: React.FC<{
       <div className="app-container-table">
         <FilaDefault />
       </div>
+    <div className="app-container-History-footer">
 
-      <Footer />
+    <Footer />
+
+    </div>
+      
     </div>
   );
 };

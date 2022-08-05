@@ -79,7 +79,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                     .toFixed(2)}
                 </span>
               </div>
-              <button className="shopping-cart-footer-btn">
+              <button onClick={()=>alert("Prestamo Registrado Existosamente")} className="shopping-cart-footer-btn" >
                 Finalizar compra
               </button>
             </div>
