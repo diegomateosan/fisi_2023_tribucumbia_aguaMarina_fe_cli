@@ -112,6 +112,7 @@
 
 .price-detail {
   font-size: 2rem;
+  font-weight: bold;
   margin: 0;
 }
 /* .right-precio .precio-descuento > p {

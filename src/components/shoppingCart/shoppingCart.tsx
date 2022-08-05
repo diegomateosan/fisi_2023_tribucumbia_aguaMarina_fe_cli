@@ -38,7 +38,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
             <div className="shopping-cart-footer">
               <div className="shopping-cart-footer-subtotal">
                 <span>Total</span>
-                <span>
+                <span className="total-price">
                   S/{" "}
                   {cartItems
                     .reduce((subTotal, cartItem) => {

@@ -159,16 +159,16 @@ const Order: React.FC<Props> = ({ booksSeller }) => {
                         <p className="price-before-discount">
                           S/ {book!.price}
                         </p>
-                        <h3 className="price-detail">
+                        <p className="price-detail">
                           S/{" "}
                           {calculatePriceWithDiscount(
                             book!.price,
                             book!.percentDiscount
                           )}
-                        </h3>
+                        </p>
                       </>
                     ) : (
-                      <p className="price">S/ {book!.price}</p>
+                      <p className="price-detail">S/ {book!.price}</p>
                     )}
                   </div>
 

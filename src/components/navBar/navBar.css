@@ -89,6 +89,8 @@
   .app-container-navBar {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
   }
   .app-container-navBar-searchbox {
     width: 100%;
