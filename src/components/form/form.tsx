@@ -360,3 +360,65 @@ export const FormRegister: React.FC<{
     </div>
   );
 };
+
+
+
+export const FormComprar: React.FC<{
+ 
+}> = ({  }) => {
+ 
+
+  const ComprarLogic = (
+    name: boolean,
+    lastname: boolean,
+    dni: boolean,
+    phone: boolean,
+    password: boolean,
+    email: boolean,
+    terminos: boolean
+  ) => {
+    if (name === false) {
+      alert("Nombre no valido, revisar el error indicado.");
+    }
+    if (lastname === false) {
+      alert("Apellido no valido, revisar el error indicado.");
+    }
+    if (dni === false) {
+      alert("Número de DNI no valido, revisar el error indicado.");
+    }
+    if (phone === false) {
+      alert("Número de celular no valido, revisar el error indicado.");
+    }
+    if (email === false) {
+      alert("Correo no valido, revisar el error indicado.");
+    }
+
+    if (password === false) {
+      alert("Contraseña no valida, revisar el error indicado.");
+    }
+
+    if (terminos === false) {
+      alert(
+        "Terminos y condiciones no aceptados, por favor verifique la casilla."
+      );
+    }
+
+    if (
+      name === true &&
+      lastname === true &&
+      email === true &&
+      password === true &&
+      phone === true &&
+      dni === true &&
+      terminos === true
+    ) {
+      alert("Usuario registrado correctamente");
+  
+    }
+  };
+
+
+  return (
+   <div></div>
+  );
+};

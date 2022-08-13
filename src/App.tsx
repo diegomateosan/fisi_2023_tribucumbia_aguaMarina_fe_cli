@@ -21,7 +21,7 @@ import { OrderDetailsPage } from "./pages/orderDetails/orderDetail";
 import { ShoppingCartProvider } from "./components/context/ShoppingCartContext";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { History } from "./pages/history/history";
-
+import {FinalizarCompra} from "./pages/FinalizarCompra/finalizarCompra"
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [userValue, setUserValue] = useState("");
@@ -82,6 +82,18 @@ function App() {
                   />
                 }
               />
+                <Route
+                path="/finalizarCompra"
+                element={
+                  <FinalizarCompra
+                    userState={userLoggedIn}
+                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                    setUserValue={(txt: string) => setUserValue(txt)}
+                    userValue={userValue}
+                  />
+                  
+                }
+              />    
 
               <Route
                 path="/orderdetails/:id"

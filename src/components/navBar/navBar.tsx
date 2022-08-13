@@ -14,6 +14,9 @@ import { BiCalendar } from "react-icons/bi";
 import "./navBar.css";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
 export const NavBarDefault: React.FC<{
   userState: boolean;
   setUserState: (txt: boolean) => void;
@@ -24,16 +27,23 @@ export const NavBarDefault: React.FC<{
   const navigate = useNavigate();
   const [modalStateRegister, SetModalStateRegister] = useState(false);
   const [emailValue, setEmailValue] = useState("");
-
   const { openCart, cartQuantity } = useShoppingCart();
 
   const toHistory = () => {
     navigate("/history");
   };
 
+  const toComprar = () => {
+    navigate("/finalizarCompra");
+  };
+
+
   const MostrarState = () => {
     alert(userState);
   };
+
+  const MostrarMensaje =() =>{
+  }
 
   return (
     <div className="app-container-navBar-header">
@@ -92,14 +102,14 @@ export const NavBarDefault: React.FC<{
           <div className="app-container-navBar-history">
             <BiCalendar className="icon icon-history" />
             {userState ? (
-              <p onClick={toHistory}>Historial de Préstamos</p>
+              <p onClick={toComprar}>Historial de Préstamos</p>
             ) : (
-              <p onClick={() => alert("Debe Iniciar sesión")}>
+              <p onClick={()=>alert("No se encuentra registrado")}>
                 Historial de Préstamos
               </p>
             )}
           </div>
-
+        
           <div className="app-container-navBar-cart" onClick={openCart}>
             <div className="counter-orders">
               <BsCart className="icon icon-cart" />
