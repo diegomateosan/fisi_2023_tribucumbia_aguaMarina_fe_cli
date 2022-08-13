@@ -1,23 +1,8 @@
 .app-container-fila {
-  display: flex;
-  justify-items: center;
-  width: 100%;
+    width: 100%;
 }
 
-table {
-  border: 1px solid #1c6ea4;
-  background-color: #eeeeee;
-  width: 80%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-table td,
-table th {
-  border: 1px solid #aaaaaa;
-  padding: 3px 2px;
-}
-
-table tr:nth-child(even) {
-  background: #d0e4f5;
+.wrapper-table-history {
+    width: 80%;
+    margin: auto;
 }

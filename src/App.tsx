@@ -3,12 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,
-  Navigate,
+    BrowserRouter,
+    Routes,
+    Route,
+    useLocation,
+    useNavigate,
+    Navigate,
 } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -21,89 +21,128 @@ import { OrderDetailsPage } from "./pages/orderDetails/orderDetail";
 import { ShoppingCartProvider } from "./components/context/ShoppingCartContext";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { History } from "./pages/history/history";
+import { AdminPage } from "./pages/adminPage/AdminPage";
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [userValue, setUserValue] = useState("");
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [userValue, setUserValue] = useState("");
 
-  return (
-    <ShoppingCartProvider>
-      <BrowserRouter>
-        <Routes>
-          {!userLoggedIn && (
-            <>
-              <Route
-                path="/"
-                element={
-                  <Home
-                    userState={userLoggedIn}
-                    setUserValue={(txt: string) => setUserValue(txt)}
-                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
-                    userValue={userValue}
-                  />
-                }
-              />
+    return (
+        <ShoppingCartProvider>
+            <BrowserRouter>
+                <Routes>
+                    {!userLoggedIn && (
+                        <>
+                            <Route
+                                path="/"
+                                element={
+                                    <Home
+                                        userState={userLoggedIn}
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
 
-              <Route
-                path="/orderdetails/:id"
-                element={
-                  <OrderDetailsPage
-                    userState={userLoggedIn}
-                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
-                    setUserValue={(txt: string) => setUserValue(txt)}
-                    userValue={userValue}
-                  />
-                }
-              />
-            </>
-          )}
+                            <Route
+                                path="/orderdetails/:id"
+                                element={
+                                    <OrderDetailsPage
+                                        userState={userLoggedIn}
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
+                        </>
+                    )}
 
-          {userLoggedIn && (
-            <>
-              <Route
-                path="/"
-                element={
-                  <Home
-                    userState={userLoggedIn}
-                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
-                    setUserValue={(txt: string) => setUserValue(txt)}
-                    userValue={userValue}
-                  />
-                }
-              />
-              <Route
-                path="/history"
-                element={
-                  <History
-                    userState={userLoggedIn}
-                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
-                    setUserValue={(txt: string) => setUserValue(txt)}
-                    userValue={userValue}
-                  />
-                }
-              />
+                    {userLoggedIn && (
+                        <>
+                            <Route
+                                path="/"
+                                element={
+                                    <Home
+                                        userState={userLoggedIn}
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/history"
+                                element={
+                                    <History
+                                        userState={userLoggedIn}
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
 
-              <Route
-                path="/orderdetails/:id"
-                element={
-                  <OrderDetailsPage
-                    userState={userLoggedIn}
-                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
-                    setUserValue={(txt: string) => setUserValue(txt)}
-                    userValue={userValue}
-                  />
-                }
-              />
-            </>
-          )}
-          <Route
-            path="*"
-            element={<Navigate to={userLoggedIn ? "/history" : "/"} />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </ShoppingCartProvider>
-  );
+                            <Route
+                                path="/orderdetails/:id"
+                                element={
+                                    <OrderDetailsPage
+                                        userState={userLoggedIn}
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
+
+                            <Route
+                                path="/admin"
+                                element={
+                                    <AdminPage
+                                        userState={userLoggedIn}
+                                        setUserState={(txt: boolean) =>
+                                            setUserLoggedIn(txt)
+                                        }
+                                        setUserValue={(txt: string) =>
+                                            setUserValue(txt)
+                                        }
+                                        userValue={userValue}
+                                    />
+                                }
+                            />
+                        </>
+                    )}
+                    <Route
+                        path="*"
+                        element={
+                            <Navigate to={userLoggedIn ? "/history" : "/"} />
+                        }
+                    />
+                </Routes>
+            </BrowserRouter>
+        </ShoppingCartProvider>
+    );
 }
 
 export default App;

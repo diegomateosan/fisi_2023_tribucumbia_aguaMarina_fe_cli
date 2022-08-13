@@ -1,0 +1,76 @@
+.app-container-home-admin {
+    width: 100%;
+}
+
+.wrapper-home-admin {
+    width: 80%;
+    margin: auto;
+}
+
+.btns-manage-add {
+    text-decoration: none;
+    color: black;
+    background-color: #34daf0;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+table {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    transition: all 300ms ease;
+}
+
+/* TODO: SCROLL A LA TABLA CON MÁS LIBROS*/
+
+table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid rgba(132, 139, 200, 0.18);
+    color: #677483;
+}
+
+.wrapper-btns-manage {
+    width: 10rem;
+}
+.btns-manage {
+    display: flex;
+    width: 15rem;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btns-manage li {
+    list-style: none;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btns-manage li:hover,
+.btns-manage-add:hover {
+    transform: scale(1.1);
+    transition: 0.4s all ease;
+}
+
+.btns-manage-edit {
+    background-color: orange;
+}
+
+.btns-manage-detail {
+    background-color: #4caf50;
+}
+
+.btns-manage-delete {
+    background-color: #f44336;
+}
