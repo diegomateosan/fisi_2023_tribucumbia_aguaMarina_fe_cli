@@ -17,31 +17,7 @@ export const History: React.FC<{
     setUserValue: (txt: string) => void; // corro
     userValue: string; // correo
 }> = ({ userState, setUserState, setUserValue, userValue }) => {
-<<<<<<< HEAD
-    return (
-        <div className="app-container-history">
-            <NavBarDefault
-                userState={userState}
-                setUserState={(txt: boolean) => setUserState(txt)}
-                setUserValue={(txt: string) => setUserValue(txt)}
-                userValue={userValue}
-            />
-            <HistoryHeader />
-            <div className="app-container-searchbox">
-                <Searchbox
-                    placeholder="Filtrar por nombre, categoria, fecha, etc."
-                    handleSearch={() => alert("Buscado")}
-                />
-            </div>
 
-            <div className="app-container-table">
-                <FilaDefault />
-            </div>
-
-            <Footer />
-        </div>
-    );
-=======
   return (
     <div className="app-container-history">
       <NavBarDefault
@@ -69,5 +45,4 @@ export const History: React.FC<{
       
     </div>
   );
->>>>>>> origin
 };
