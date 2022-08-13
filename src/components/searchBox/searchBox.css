@@ -4,9 +4,10 @@
   border-radius: 10px;
   height: 1.5rem;
   padding: 10px 0px 10px 10px;
-  background-color: white;
+  background-color: none;
   position: relative;
   overflow: hidden;
+  display: flex;
 }
 
 .app-container-searchbox > input {
@@ -14,6 +15,8 @@
   outline: none;
   /*  min-width: 25rem; */
   min-width: 90%;
+  width: 100%;
+ 
 }
 
 .icon-search {

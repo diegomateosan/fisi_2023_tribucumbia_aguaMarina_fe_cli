@@ -21,8 +21,12 @@ import { OrderDetailsPage } from "./pages/orderDetails/orderDetail";
 import { ShoppingCartProvider } from "./components/context/ShoppingCartContext";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { History } from "./pages/history/history";
+<<<<<<< HEAD
 import { AdminPage } from "./pages/adminPage/AdminPage";
 
+=======
+import {FinalizarCompra} from "./pages/FinalizarCompra/finalizarCompra"
+>>>>>>> origin
 function App() {
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [userValue, setUserValue] = useState("");
@@ -67,6 +71,7 @@ function App() {
                         </>
                     )}
 
+<<<<<<< HEAD
                     {userLoggedIn && (
                         <>
                             <Route
@@ -99,6 +104,44 @@ function App() {
                                     />
                                 }
                             />
+=======
+          {userLoggedIn && (
+            <>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    userState={userLoggedIn}
+                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                    setUserValue={(txt: string) => setUserValue(txt)}
+                    userValue={userValue}
+                  />
+                }
+              />
+              <Route
+                path="/history"
+                element={
+                  <History
+                    userState={userLoggedIn}
+                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                    setUserValue={(txt: string) => setUserValue(txt)}
+                    userValue={userValue}
+                  />
+                }
+              />
+                <Route
+                path="/finalizarCompra"
+                element={
+                  <FinalizarCompra
+                    userState={userLoggedIn}
+                    setUserState={(txt: boolean) => setUserLoggedIn(txt)}
+                    setUserValue={(txt: string) => setUserValue(txt)}
+                    userValue={userValue}
+                  />
+                  
+                }
+              />    
+>>>>>>> origin
 
                             <Route
                                 path="/orderdetails/:id"

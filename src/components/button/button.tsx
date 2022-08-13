@@ -50,4 +50,40 @@ export const ButtonRegister: React.FC<{
 
 
 
+export const ButtonComprar: React.FC<{
+  handleClick: (name: boolean ,lastname : boolean , codigo : boolean, cvv: boolean, fechaven: boolean) => void;
+  name: boolean ;
+  lastname : boolean ;
+  codigo : boolean;
+  cvv: boolean;
+  placeholder: string;
+  fechaven: boolean;
+}> = ({ handleClick, placeholder, name, lastname, codigo , cvv ,fechaven }) => {
+  return (
+    <div className="app-container-buttonLogin">
+      <button onClick={() => handleClick(name,lastname,codigo,cvv,fechaven)}>
+        {placeholder}
+      </button>
+    </div>
+  );
+};
+
+
+export const ButtonDescuento: React.FC<{
+  handleClick: ( codigo : boolean) => void;
+  codigo : boolean;
+  placeholder: string;
+
+}> = ({ handleClick, placeholder,  codigo  }) => {
+  return (
+    <div className="app-container-buttonLogin">
+      <button onClick={() => handleClick(codigo)}>
+        {placeholder}
+      </button>
+    </div>
+  );
+};
+
+
+
 

@@ -11,7 +11,6 @@ type ShoppingCartProps = {
 
 const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
   const { closeCart, cartItems } = useShoppingCart();
-
   return (
     <>
       {isOpen && (
@@ -79,7 +78,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                     .toFixed(2)}
                 </span>
               </div>
-              <button className="shopping-cart-footer-btn">
+              <button onClick={()=>alert("Compra Exitossa")} className="shopping-cart-footer-btn" >
                 Finalizar compra
               </button>
             </div>
