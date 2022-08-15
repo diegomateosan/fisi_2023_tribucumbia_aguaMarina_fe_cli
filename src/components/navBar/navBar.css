@@ -1,100 +1,111 @@
 .app-container-navBar-header {
-  width: 100vw;
-  background-color: var(--primary-color);
+    width: 100vw;
+    background-color: var(--primary-color);
 }
 
 .app-container-navBar {
-  width: 80%;
-  display: grid;
-  grid-template-columns: 12rem repeat(auto-fit, minmax(15rem, 1fr));
-  align-items: center;
-  margin: 0 auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 12rem repeat(auto-fit, minmax(15rem, 1fr));
+    align-items: center;
+    margin: 0 auto;
 }
 
 .app-container-navBar-searchbox {
-  width: 100%;
-  margin-right: 10px;
+    width: 95%;
+    margin-right: 10px;
 }
 
 .app-container-navBar-links {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: auto;
-  gap: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    gap: 10px;
 }
 
 .app-container-navBar-Logo > img {
-  height: 5rem;
-  cursor: pointer;
+    height: 5rem;
+    cursor: pointer;
 }
 
 .app-container-navBar > div {
-  display: flex;
+    display: flex;
 }
 
 .app-container-navBar > div > label {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .app-container-navBar-user,
 .app-container-navBar-history,
-.app-container-navBar-cart {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.app-container-navBar-cart,
+.app-container-navBar-admin-options {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .app-container-navBar-user:hover,
 .app-container-navBar-history:hover,
-.app-container-navBar-cart:hover {
-  transition: 0.4s ease all;
-  color: var(--color-icon);
-  font-weight: bold;
-  transform: scale(1.05);
+.app-container-navBar-cart:hover,
+.app-container-navBar-admin-options:hover {
+    transition: 0.4s ease all;
+    color: var(--color-icon);
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.app-container-navBar-admin-options:hover {
+    color: #cc3300;
 }
 
 .app-container-navBar-user > p,
 .app-container-navBar-history > p,
-.app-container-navBar-cart > p {
-  width: 100%;
-  text-align: center;
-  font-size: 0.9rem;
+.app-container-navBar-cart > p,
+.app-container-navBar-admin-options > p {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 .counter-orders {
-  position: relative;
+    position: relative;
 }
 
 .cart-badge {
-  background-color: tomato;
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  top: -2px;
-  right: -5px;
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  border-radius: 50%;
+    background-color: tomato;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: -2px;
+    right: -5px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
 }
 
 .icon {
-  color: var(--color-icon);
-  width: 2rem;
-  height: 2rem;
+    color: var(--color-icon);
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-admin {
+    color: #cc3300;
 }
 
 @media (max-width: 1024px) {
-  .app-container-navBar {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .app-container-navBar-searchbox {
-    width: 100%;
-    margin: auto;
-  }
+    .app-container-navBar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .app-container-navBar-searchbox {
+        width: 100%;
+        margin: auto;
+    }
 }

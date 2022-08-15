@@ -1,34 +1,33 @@
 .app-container-searchbox {
-  width: 100%;
-  box-shadow: var(--box-shadow);
-  border-radius: 10px;
-  height: 1.5rem;
-  padding: 10px 0px 10px 10px;
-  background-color: none;
-  position: relative;
-  overflow: hidden;
-  display: flex;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    height: 1.5rem;
+    padding: 10px 0px 10px 10px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
 }
 
 .app-container-searchbox > input {
-  border: none;
-  outline: none;
-  /*  min-width: 25rem; */
-  min-width: 90%;
-  width: 100%;
- 
+    border: none;
+    outline: none;
+    /*  min-width: 25rem; */
+    min-width: 90%;
+    width: 100%;
 }
 
 .icon-search {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  right: 10px;
-  min-width: 1rem;
-  color: white;
-  border-radius: 20%;
-  align-self: center;
-  padding: 4px;
-  background-color: #505a70;
-  cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    min-width: 1rem;
+    color: white;
+    border-radius: 20%;
+    align-self: center;
+    padding: 4px;
+    background-color: #505a70;
+    cursor: pointer;
 }

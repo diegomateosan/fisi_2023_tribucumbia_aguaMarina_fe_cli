@@ -1,0 +1,71 @@
+.app-container-editBook {
+    width: 100%;
+}
+.wrapper-editBook {
+    width: 80%;
+    margin: auto;
+}
+
+.editBook-img {
+    width: 15rem;
+}
+
+.editBook-img > img {
+    width: 100%;
+}
+
+.field-edit > input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    padding: 7px;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.field-edit > input:focus {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.editBook-description > textarea:focus {
+    outline: none;
+}
+
+.edited-label::after {
+    margin-left: 10px;
+    content: "Editado";
+    padding: 1px 4px;
+    width: 5rem;
+    height: 1rem;
+    border-radius: 10px;
+    background-color: #ffcc00;
+    transition: 0.4s all ease;
+}
+
+.btn-edit-book {
+    margin: 10px 0px;
+    border: none;
+    background-color: #34daf0;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 20%;
+    height: 3rem;
+    cursor: pointer;
+    color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.btn-edit-book > span {
+    margin-left: 10px;
+}
+
+.btn-edit-book:hover {
+    transform: scale(1.1);
+    transition: 0.4s all ease;
+}

@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FcUndo } from "react-icons/fc";
 import "./addBookForm.css";
 
-export const FormAddBook: React.FC<{
-    state: boolean;
-    handleChange: (text: boolean) => void;
-}> = ({ state, handleChange }) => {
+export const FormAddBook: React.FC<{}> = () => {
     const [discount, setDiscount] = useState(false);
     const refDiscount = useRef<HTMLSelectElement>(null);
 
@@ -26,30 +22,50 @@ export const FormAddBook: React.FC<{
     return (
         <div className="app-container-addBook">
             <div className="header-addBookForm">
-                <FcUndo
-                    size={50}
-                    title="Cerrar ventana"
-                    className="volverHomeAdmin"
-                    onClick={() => handleChange(false)}
-                ></FcUndo>
                 <h2>Añadir Libros</h2>
             </div>
 
-            <div className="body-addBookForm">
-                <form className="body-addBookForm-form">
-                    <div className="name-book-field">
-                        <label htmlFor="nameBook">Título del libro:</label>
-                        <input type="text" name="nameBook" />
-                    </div>
-                    {/*  <div className="author-book-field">
-                        <label htmlFor="nameAuthor">Nombre del autor:</label>
-                        <input type="text" name="nameAuthor" />
-                    </div> */}
-                    <div className="price-book-field">
-                        <label htmlFor="price">Precio</label>
-                        <input type="number" name="price" />
-                    </div>
-                    <div className="discount-book-field">
+            <form className="body-addBookForm-form">
+                <div className="form__group field">
+                    <input
+                        type="text"
+                        id="nameBook"
+                        className="form__field"
+                        placeholder="Título"
+                        required
+                    />
+                    <label htmlFor="nameBook" className="form__label">
+                        Título
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="text"
+                        id="author"
+                        placeholder="Autor"
+                        className="form__field"
+                        required
+                    />
+                    <label htmlFor="author" className="form__label">
+                        Autor
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <textarea
+                        id="desc"
+                        placeholder="Descripción"
+                        className="form__field"
+                        required
+                    ></textarea>
+                    <label htmlFor="desc" className="form__label">
+                        Descripción
+                    </label>
+                </div>
+
+                {/* TODO: CATEGORIAS */}
+                {/* <div className="category-book-field">
                         <select
                             ref={refDiscount}
                             onClick={() =>
@@ -61,26 +77,170 @@ export const FormAddBook: React.FC<{
                             </option>
                             <option value="DISCOUNTON">Con Descuento</option>
                         </select>
-                    </div>
+                    </div> */}
 
+                <div className="form__group field">
+                    <input
+                        type="text"
+                        id="editorial"
+                        placeholder="Editorial"
+                        className="form__field"
+                        required
+                    />
+                    <label htmlFor="editorial" className="form__label">
+                        Editorial
+                    </label>
+                </div>
+
+                {/* TOOD: IMAGEN */}
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="desc"
+                        placeholder="Año"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="desc" className="form__label">
+                        Año
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="pages"
+                        placeholder="Páginas"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="pages" className="form__label">
+                        Páginas
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="text"
+                        id="language"
+                        placeholder="Idioma"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="language" className="form__label">
+                        Idioma
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="weight"
+                        placeholder="Peso"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="weight" className="form__label">
+                        Peso
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="width"
+                        placeholder="Ancho"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="width" className="form__label">
+                        Ancho
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="height"
+                        placeholder="Altura"
+                        className="form__field"
+                        required
+                    ></input>
+                    <label htmlFor="height" className="form__label">
+                        Altura
+                    </label>
+                </div>
+
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="price"
+                        placeholder="Precio"
+                        className="form__field"
+                        required
+                    />
+                    <label htmlFor="price" className="form__label">
+                        Precio
+                    </label>
+                </div>
+                <div className="form__group field">
+                    <select
+                        ref={refDiscount}
+                        onClick={() => withDiscount(refDiscount.current!.value)}
+                    >
+                        <option value="DISCOUNTOFF">Sin Descuento</option>
+                        <option value="DISCOUNTON">Con Descuento</option>
+                    </select>
                     {discount && (
-                        <div className="discountpercent-book-field">
-                            <label htmlFor="discountpercent">
+                        <div className="form__group field field-discount">
+                            <input
+                                type="number"
+                                id="discountpercent"
+                                placeholder="Porcentaje de descuento"
+                                className="form__field"
+                                required
+                            />
+
+                            <label
+                                htmlFor="discountpercent"
+                                className="form__label"
+                            >
                                 Porcentaje de descuento
                             </label>
-                            <input type="number" name="discountpercent" />
-                            <span>%</span>
                         </div>
                     )}
+                </div>
 
-                    <div className="stock-book-field">
-                        <label htmlFor="stock">Stock</label>
-                        <input type="number" name="stock" />
-                    </div>
+                <div className="form__group field">
+                    <input
+                        type="number"
+                        id="stock"
+                        placeholder="Stock"
+                        className="form__field"
+                        required
+                    />
+                    <label htmlFor="stock" className="form__label">
+                        Stock
+                    </label>
+                </div>
 
-                    <button className="btn-add-book">Añadir libro</button>
-                </form>
-            </div>
+                <button className="btn-add-book">
+                    <span>Añadir libro</span>
+                </button>
+
+                {/* <ToastContainer
+                    position="top-center"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                /> */}
+            </form>
         </div>
     );
 };

@@ -1,0 +1,137 @@
+[
+    {
+        "idcliente": 1,
+        "nombre": "Alvaro Rafael",
+        "apellido": "Cayetano Contreras",
+        "telefono": 925538296,
+        "dni": 758688883,
+        "correo": "alvarocayetanos@gmail.com",
+        "contraseña": "alvaro123"
+    },
+    {
+        "idcliente": 2,
+        "nombre": "Diego Armando",
+        "apellido": "Mateo Sandoval",
+        "telefono": 999512352,
+        "dni": 787475738,
+        "correo": "diegomateosan@gmail.com",
+        "contraseña": "onichan123"
+    },
+    {
+        "idcliente": 3,
+        "nombre": "Gustavo Adrian",
+        "apellido": "Pazos Medina",
+        "telefono": 925253829,
+        "dni": 403288201,
+        "correo": "gustavo555@gmail.com",
+        "contraseña": "gustavoga1"
+    },
+    {
+        "idcliente": 4,
+        "nombre": "Erick Brandom",
+        "apellido": "Villalobos Casanatán",
+        "telefono": 924517863,
+        "dni": 569680074,
+        "correo": "erick3454@gmail.com",
+        "contraseña": "patitonichan5"
+    },
+    {
+        "idcliente": 5,
+        "nombre": "Jordy Joander",
+        "apellido": "Mayhuay Marcos",
+        "telefono": 958691256,
+        "dni": 320203665,
+        "correo": "jordymmmm@gmail.com",
+        "contraseña": "gaaa2356"
+    },
+    {
+        "idcliente": 6,
+        "nombre": "Daniel Raul",
+        "apellido": "Acosta Puentes",
+        "telefono": 958632156,
+        "dni": 383671703,
+        "correo": "danielemejor@gmail.com",
+        "contraseña": "danimani323"
+    },
+    {
+        "idcliente": 7,
+        "nombre": "Antonio Victor",
+        "apellido": "Garcia Calderón",
+        "telefono": 963245786,
+        "dni": 683085073,
+        "correo": "antobblob1@gmail.com",
+        "contraseña": "miau5426"
+    },
+    {
+        "idcliente": 8,
+        "nombre": "José Domingo",
+        "apellido": "Diaz Ortega",
+        "telefono": 947586236,
+        "dni": 731249239,
+        "correo": "jojonavidad2@gmail.com",
+        "contraseña": "beascoastti"
+    },
+    {
+        "idcliente": 9,
+        "nombre": "Erick Joel",
+        "apellido": "Guevara Ruiz",
+        "telefono": 975846245,
+        "dni": 952427058,
+        "correo": "erickj54@gmail.com",
+        "contraseña": "nosequehagoenperu6"
+    },
+    {
+        "idcliente": 10,
+        "nombre": "Estela Maria",
+        "apellido": "Sanchez Mariño",
+        "telefono": 912045036,
+        "dni": 411092696,
+        "correo": "mariaxpre@hotmail.com",
+        "contraseña": "maria2363"
+    },
+    {
+        "idcliente": 11,
+        "nombre": "Jordy Joander",
+        "apellido": "Mayhuay Marcos",
+        "telefono": 958691256,
+        "dni": 320203665,
+        "correo": "jordymmmm@gmail.com",
+        "contraseña": "gaaa2356"
+    },
+    {
+        "idcliente": 12,
+        "nombre": "Ana Isabel",
+        "apellido": "Acevedo Ramirez",
+        "telefono": 985632146,
+        "dni": 286209637,
+        "correo": "anitalavalatina@gmail.com",
+        "contraseña": "miau222222"
+    },
+    {
+        "idcliente": 13,
+        "nombre": "Corali Nicole",
+        "apellido": "Real Contreras",
+        "telefono": 948567150,
+        "dni": 809075174,
+        "correo": "colariuwu1@gmail.com",
+        "contraseña": "gatito123"
+    },
+    {
+        "idcliente": 14,
+        "nombre": "Maria Antonia",
+        "apellido": "Rios Olivares",
+        "telefono": 924353102,
+        "dni": 223727282,
+        "correo": "maritza111@gmail.com",
+        "contraseña": "panqueque1222"
+    },
+    {
+        "idcliente": 15,
+        "nombre": "Alvaro Juan",
+        "apellido": "Corrales Zevallos",
+        "telefono": 947851002,
+        "dni": 902299791,
+        "correo": "alvaroelmejorm@gmail.com",
+        "contraseña": "burros111500"
+    }
+]

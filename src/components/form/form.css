@@ -1,145 +1,145 @@
 .app-container-login {
-  background-color: white;
-  width: 500px;
-  height: 550px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  border-radius: 30px;
+    background-color: white;
+    width: 500px;
+    height: 550px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 30px;
 }
 
 .app-container-form {
-  width: 100%;
+    width: 100%;
 }
 
 .app-container-logo > img {
-  width: 300px;
+    width: 300px;
 }
 
 .app-container-logo {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 30px;
 }
 .app-container-title {
-  display: flex;
+    display: flex;
 }
 
 .app-container-label-register {
-  margin-left: 55px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .app-container-tittleReturn {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .app-container-login-return > svg {
-  margin-top: -20px;
-  margin-left: -100px;
+    margin-top: -20px;
+    margin-left: -100px;
 }
 
 .app-container-login-return {
-  display: flex;
-  flex-direction: column;
-  margin-top: -15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
 }
 
 .app-container-label-register > p {
-  color: blue;
-  margin-left: 5px;
-  text-decoration: underline;
+    color: blue;
+    margin-left: 5px;
+    text-decoration: underline;
 }
 
 .app-container-register {
-  background-color: white;
-  width: 700px;
-  height: 700px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  border-radius: 30px;
+    background-color: white;
+    width: 700px;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 30px;
 }
 
 .app-container-register-tittleReturn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .app-container-register-form {
-  margin-left: -40px;
+    margin-left: -40px;
 }
 
 .app-container-register-form > div > div > div > div > input {
-  width: 250px;
+    width: 250px;
 }
 /* ojo*/
 .app-container-register-password > div > div > div > div > input {
-  width: 550px;
+    width: 550px;
 }
 
 .app-container-register-form > div {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .app-container-phone-gender {
-  align-items: center;
+    align-items: center;
 }
 
 .app-container-gender {
-  display: flex;
-  flex-direction: column;
-  margin-left: 55px;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 55px;
+    margin-top: 20px;
 }
 
 .app-container-gender > label {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .app-container-gender > select {
-  width: 250px;
-  height: 35px;
+    width: 250px;
+    height: 35px;
 }
 
 .app-container-register-terminos {
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-  margin-left: 55px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-left: 55px;
 }
 
 .app-container-register-terminos > label {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .app-container-register-terminos > a {
-  margin-right: 2px;
+    margin-right: 2px;
 }
 .app-container-register-CrearCuenta {
-  justify-content: center;
+    justify-content: center;
 }
 
 .app-container-register-terminos > svg {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 .app-container-register-exit > svg {
-  color: red;
+    color: red;
 }
 
 .app-container-register-title {
-  padding-left: 125px;
-  padding-right: 150px;
+    padding-left: 125px;
+    padding-right: 150px;
 }

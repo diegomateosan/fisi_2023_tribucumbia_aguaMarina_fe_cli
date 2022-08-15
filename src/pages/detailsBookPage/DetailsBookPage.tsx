@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Footer } from "../../components/footer/footer";
 import { NavBarDefault } from "../../components/navBar/navBar";
-import Order from "../../components/order/order";
+import { Footer } from "../../components/footer/footer";
 import books from "../../models/books.json";
+import DetailsBook from "../../components/admin/detailsBook/DetailsBook";
 
-export const OrderDetailsPage: React.FC<{
+export const DetailsBookPage: React.FC<{
     userState: boolean;
     setUserState: (txt: boolean) => void;
     setUserValue: (txt: string) => void;
     userValue: string;
 }> = ({ userState, setUserState, setUserValue, userValue }) => {
     return (
-        <div className="app-container-detail">
+        <div className="app-container-adminpage">
             <NavBarDefault
                 userState={userState}
                 setUserState={(txt: boolean) => setUserState(txt)}
                 setUserValue={(txt: string) => setUserValue(txt)}
                 userValue={userValue}
             />
-            <Order booksSeller={books}></Order>
+            <DetailsBook booksSeller={books} />
             <Footer></Footer>
         </div>
     );

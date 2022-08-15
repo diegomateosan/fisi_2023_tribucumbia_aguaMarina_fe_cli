@@ -68,7 +68,7 @@ export const ModalRegister: React.FC<{
     );
 };
 
-export const ModalAddBook: React.FC<{
+/* export const ModalAddBook: React.FC<{
     state: boolean;
     handleChange: (text: boolean) => void;
 }> = ({ state, handleChange }) => {
@@ -84,4 +84,4 @@ export const ModalAddBook: React.FC<{
             )}
         </>
     );
-};
+}; */

@@ -1,7 +1,7 @@
 import { NavBarDefault } from "../../components/navBar/navBar";
 import { Footer } from "../../components/footer/footer";
-import { HomeAdmin } from "../../components/admin/HomeAdmin";
-import { books } from "../../components/listCards/cards";
+import { HomeAdmin } from "../../components/admin/homeAdmin/HomeAdmin";
+/* import books from "../../models/books.json"; */
 
 export const AdminPage: React.FC<{
     userState: boolean;
@@ -17,7 +17,7 @@ export const AdminPage: React.FC<{
                 setUserValue={(txt: string) => setUserValue(txt)}
                 userValue={userValue}
             />
-            <HomeAdmin booksSeller={books} />
+            <HomeAdmin />
             <Footer></Footer>
         </div>
     );
