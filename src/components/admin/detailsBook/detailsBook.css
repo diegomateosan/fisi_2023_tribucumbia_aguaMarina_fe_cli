@@ -1,0 +1,32 @@
+.icon-see-details {
+    width: 2rem;
+    height: 2rem;
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+.wrapper-details-general--bkcolor,
+.wrapper-details-pyshical--bkcolor,
+.wrapper-details-selling--bkcolor {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.form__label--file-withoutHover:hover {
+    transform: none;
+}
+
+.subtitle-details {
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 0px 20px 20px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+.form__group--center {
+    text-align: center;
+}

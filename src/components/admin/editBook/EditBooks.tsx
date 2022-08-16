@@ -3,6 +3,7 @@ import { FiSave } from "react-icons/fi";
 import { useParams, useNavigate } from "react-router-dom";
 import { Props } from "../../../models/interfaces";
 import { FcUndo, FcCompactCamera } from "react-icons/fc";
+import { BiEdit } from "react-icons/bi";
 import "./editBook.css";
 import "../../form/addBook/addBookForm.css";
 
@@ -155,6 +156,7 @@ const EditBook: React.FC<Props> = ({ booksSeller }) => {
                         onClick={() => navigate(-1)}
                         className="goBackTo"
                     />
+                    <BiEdit className="icon-edit-field" />
                     <h2>
                         EDITAR LIBRO {book!.id}: {book!.title}
                     </h2>
@@ -342,6 +344,7 @@ const EditBook: React.FC<Props> = ({ booksSeller }) => {
                         </div>
 
                         <div className="wrapper-details-pyshical">
+                            <h3>Detalles físicos del libro</h3>
                             <div className="body-addBook-details-book-physical">
                                 <div className="field-edit editBook-weight">
                                     {styleEditWeight ? (

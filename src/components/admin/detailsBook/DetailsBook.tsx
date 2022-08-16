@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import { Props } from "../../../models/interfaces";
 import { useNavigate } from "react-router-dom";
 import { FcUndo } from "react-icons/fc";
+import { FaRegEye } from "react-icons/fa";
 import "../../form/addBook/addBookForm.css";
+import "./detailsBook.css";
 
 const DetailsBook: React.FC<Props> = ({ booksSeller }) => {
     const navigate = useNavigate();
@@ -21,6 +23,7 @@ const DetailsBook: React.FC<Props> = ({ booksSeller }) => {
                         onClick={() => navigate(-1)}
                         className="goBackTo"
                     />
+                    <FaRegEye className="icon-see-details" />
                     <h2>
                         DETALLES DEL LIBRO {book!.id}: {book!.title}
                     </h2>
@@ -30,15 +33,18 @@ const DetailsBook: React.FC<Props> = ({ booksSeller }) => {
                 </p>
 
                 <div className="body-addBookForm-form">
-                    <div className="wrapper-details-general">
-                        <h3>Detalles del libro general</h3>
+                    <div className="wrapper-details-general wrapper-details-general--bkcolor">
+                        <h3 className="subtitle-details">
+                            {" "}
+                            Detalles del libro general
+                        </h3>
                         <div className="body-addBook-details-book-general">
                             <div className="body-addBook-details-book-img">
                                 <h3>Imagen</h3>
                                 <img
                                     src={book!.image}
                                     alt="imagen"
-                                    className="form__label--file-selected"
+                                    className="form__label--file-selected form__label--file-withoutHover"
                                 />
                             </div>
                             <div className="body-addBook-details-book-about">
@@ -80,43 +86,45 @@ const DetailsBook: React.FC<Props> = ({ booksSeller }) => {
                         </div>
                     </div>
 
-                    <div className="wrapper-details-pyshical">
-                        <h3>Detalles físicos del libro</h3>
+                    <div className="wrapper-details-pyshical wrapper-details-pyshical--bkcolor">
+                        <h3 className="subtitle-details">
+                            Detalles físicos del libro
+                        </h3>
                         <div className="body-addBook-details-book-physical">
-                            <div className="form__group field">
+                            <div className="form__group field form__group--center">
                                 <h3>Ancho </h3>
-                                <p>{book!.width}</p>
+                                <p>{book!.width} cm</p>
                             </div>
 
-                            <div className="form__group field">
+                            <div className="form__group field form__group--center">
                                 <h3>Peso </h3>
-                                <p>{book!.weight}</p>
+                                <p>{book!.weight} kg</p>
                             </div>
-                            <div className="form__group field">
+                            <div className="form__group field form__group--center">
                                 <h3>Altura </h3>
-                                <p>{book!.height}</p>
+                                <p>{book!.height} cm</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="wrapper-details-selling">
-                        <h3>Detalles de venta</h3>
+                    <div className="wrapper-details-selling wrapper-details-selling--bkcolor">
+                        <h3 className="subtitle-details">Detalles de venta</h3>
                         <div className="body-addBook-details-book-selling">
-                            <div className="form__group field">
+                            <div className="form__group field form__group--center">
                                 <h3>Precio </h3>
-                                <p>{book!.price}</p>
+                                <p>S/ {book!.price}</p>
                             </div>
 
                             {book!.percentDiscount && (
-                                <div className="form__group field">
+                                <div className="form__group field form__group--center">
                                     <h3>Porcentaje de Descuento </h3>
-                                    <p>{book!.percentDiscount}</p>
+                                    <p>{book!.percentDiscount} %</p>
                                 </div>
                             )}
 
-                            <div className="form__group field">
+                            <div className="form__group field form__group--center">
                                 <h3>Stock </h3>
-                                <p>50</p>
+                                <p>50 unidades</p>
                             </div>
                         </div>
                     </div>

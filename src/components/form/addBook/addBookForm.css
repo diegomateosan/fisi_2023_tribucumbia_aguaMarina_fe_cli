@@ -34,12 +34,18 @@
 
 .goBackTo {
     position: absolute;
-    left: 0px;
-    margin-top: 10px;
+    left: 3px;
+    margin-top: 20px;
     width: 3rem;
     height: 3rem;
     cursor: pointer;
 }
+
+.goBackTo:hover {
+    transform: scale(1.5);
+    transition: 0.4s all ease;
+}
+
 .header-addBookForm-desc {
     margin-top: 10px;
 }
