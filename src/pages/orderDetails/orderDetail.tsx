@@ -7,10 +7,15 @@ import books from "../../models/books.json";
 export const OrderDetailsPage: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   return (
     <div className="app-container-detail">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin}
+      />
       <Order booksSeller={books}></Order>
       <Footer></Footer>
     </div>

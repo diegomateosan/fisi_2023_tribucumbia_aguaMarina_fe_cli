@@ -9,7 +9,8 @@ export const ModalLogin: React.FC<{
   handleChange: (text: boolean) => void;
   handleRegister: (text: boolean) => void;
   handleAuth: () => void;
-}> = ({ state, handleAuth, handleChange, handleRegister }) => {
+  handleLogin: () => void;
+}> = ({ state, handleAuth, handleChange, handleRegister, handleLogin }) => {
   return (
     <>
       {state && (
@@ -18,6 +19,7 @@ export const ModalLogin: React.FC<{
             handleChange={(txt: boolean) => handleChange(txt)}
             handleRegister={(txt: boolean) => handleRegister(txt)}
             handleauth={() => handleAuth()}
+            handleLogin={() => handleLogin}
           />
         </div>
       )}

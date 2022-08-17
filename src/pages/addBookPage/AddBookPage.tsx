@@ -5,10 +5,15 @@ import { FormAddBook } from "../../components/form/addBook/AddBookForm";
 export const AddBookPage: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   return (
     <div className="app-container-adminpage">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin}
+      />
 
       <FormAddBook />
       <Footer></Footer>

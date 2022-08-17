@@ -14,10 +14,15 @@ import "./history.css";
 export const History: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   return (
     <div className="app-container-history">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin()}
+      />
 
       <HistoryHeader />
       <div className="app-container-history-searchbox">

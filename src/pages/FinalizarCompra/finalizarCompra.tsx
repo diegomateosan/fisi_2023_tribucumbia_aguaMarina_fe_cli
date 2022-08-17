@@ -10,7 +10,8 @@ import { ButtonComprar, ButtonDescuento } from "../../components/button/button";
 export const FinalizarCompra: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   const [nameValue, setNameValue] = useState("");
   const [nametState, setNameState] = useState(false);
 
@@ -83,7 +84,11 @@ export const FinalizarCompra: React.FC<{
 
   return (
     <div className="app-container-comprarPagina">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin}
+      />
 
       <ComprarHeader />
 

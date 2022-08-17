@@ -7,10 +7,15 @@ import EditBook from "../../components/admin/editBook/EditBooks";
 export const EditBookPage: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   return (
     <div className="app-container-adminpage">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin}
+      />
 
       <EditBook booksSeller={books} />
       <Footer></Footer>

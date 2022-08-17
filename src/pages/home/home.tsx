@@ -11,12 +11,17 @@ import { Categories } from "../../components/categories/category";
 export const Home: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   const [loginState, setLoginState] = useState(false);
 
   return (
     <div className="app-container-home">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin()}
+      />
       <Slide></Slide>
       <Categories></Categories>
       <Cards></Cards>

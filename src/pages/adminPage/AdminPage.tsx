@@ -6,10 +6,15 @@ import { HomeAdmin } from "../../components/admin/homeAdmin/HomeAdmin";
 export const AdminPage: React.FC<{
   userState: boolean;
   handleauth: () => void;
-}> = ({ userState, handleauth }) => {
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
   return (
     <div className="app-container-adminpage">
-      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin()}
+      />
 
       <HomeAdmin />
       <Footer></Footer>

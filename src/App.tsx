@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     VerifyLoggedIn();
+    console.log("estado:", userLoggedIn);
   }, [userLoggedIn]);
 
   return (
@@ -54,6 +55,7 @@ function App() {
                 <Home
                   userState={userLoggedIn}
                   handleauth={() => setUserLoggedIn(false)}
+                  handleLogin={() => setUserLoggedIn(true)}
                 />
               }
             />
@@ -80,6 +82,7 @@ function App() {
                 <Home
                   userState={userLoggedIn}
                   handleauth={() => setUserLoggedIn(false)}
+                  handleLogin={() => setUserLoggedIn(true)}
                 />
               }
             />
@@ -172,7 +175,7 @@ function App() {
           path="*"
           element={
             <Navigate
-              to={userLoggedIn ? "/brisasMarinas/usuario" : "/brisasMarinas"}
+              to={userLoggedIn ? "/brisasMarinas/Usuario" : "/brisasMarinas"}
             />
           }
         />

@@ -7,17 +7,20 @@ import { FiCheckSquare, FiSquare } from "react-icons/fi";
 import "./form.css";
 import { AiOutlineClose } from "react-icons/ai";
 import userService from "../../services/user";
+import { useNavigate } from "react-router-dom";
 
 export const FormLogin: React.FC<{
   handleChange: (text: boolean) => void;
   handleRegister: (text: boolean) => void;
   handleauth: () => void;
-}> = ({ handleauth, handleChange, handleRegister }) => {
+  handleLogin: () => void;
+}> = ({ handleauth, handleChange, handleRegister, handleLogin }) => {
   const [InputValue, setInputValue] = useState("");
   const [InputState, setInputState] = useState(false);
 
   const [passwordValue, setPasswordValue] = useState("");
   const [PasswordState, setPasswordState] = useState(false);
+  const navigate = useNavigate();
 
   const submitClick = async (emailValue: string, passwordValue: string) => {
     if (emailValue === "" || passwordValue === "") {
@@ -31,8 +34,9 @@ export const FormLogin: React.FC<{
         localStorage.setItem("token", result.data.token);
         alert("Usuario inició sesión correctamente");
         console.log(result);
-        handleauth();
         handleChange(false);
+        handleLogin();
+        navigate("/brisasMarinas/Usuario");
       }
     }
   };
