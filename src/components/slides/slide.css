@@ -1,63 +1,63 @@
 .app-container-slides {
-  max-width: 100vw;
-  overflow: hidden;
-  margin: auto;
-  position: relative;
+    max-width: 100vw;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
 }
 .app-container-slide-show {
-  display: flex;
-  flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .app-container-slide {
-  min-width: 100%;
-  overflow: hidden;
-  transition: 0.3s ease all;
-  z-index: 10;
-  position: relative;
+    min-width: 100%;
+    overflow: hidden;
+    transition: 0.3s ease all;
+    z-index: 10;
+    position: relative;
 }
 
 .app-container-slide > a > img {
-  width: 100%;
-  vertical-align: top;
+    width: 100%;
+    vertical-align: top;
 }
 
 .app-container-slides__text > p {
-  font-size: 24px;
-  font-weight: 600;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .app-container-slide-controls {
-  position: absolute;
-  top: 0;
-  z-index: 20;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .app-container-slide-button {
-  pointer-events: all;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 50px;
-  height: 100%;
-  text-align: center;
-  position: absolute;
-  transition: 0.3 ease all;
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    transition: 0.3 ease all;
 }
 
 .slide-arrow {
-  color: black;
-  width: 30px;
-  height: 30px;
+    color: black;
+    width: 30px;
+    height: 30px;
 }
 
 .app-container-slide-button:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .button-right {
-  right: 0;
+    right: 0;
 }
