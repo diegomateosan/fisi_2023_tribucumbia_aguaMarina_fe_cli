@@ -30,7 +30,6 @@ import userService from "./services/user";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [userValue, setUserValue] = useState("");
 
   const VerifyLoggedIn = async () => {
     const resultVerify = await userService.verify();
