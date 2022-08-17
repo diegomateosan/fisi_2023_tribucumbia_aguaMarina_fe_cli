@@ -6,28 +6,31 @@ import { useNavigate } from "react-router-dom";
 import "./dataCard.css";
 
 export const CategoryCard: React.FC<{}> = () => {
-  const [categoryList, setCategoryList] = useState<CategoryData[] | null>([]);
-  const navigate = useNavigate();
+    const [categoryList, setCategoryList] = useState<CategoryData[] | null>([]);
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    serviceCategory();
-  }, []);
+    useEffect(() => {
+        serviceCategory();
+    }, []);
 
-  const serviceCategory = async () => {
-    const result = await categoryService.QuantList(6);
-    setCategoryList(result);
-    console.log(categoryList);
-  };
-  return (
-    <div className="app-container-map-category-cards">
-      {categoryList?.map((data, idx) => (
-        <div className="wrapper-card" key={idx}>
-          <div className="category-card">
-            <img src={data.image_url} alt="category-data-card" />
-            <h3 className="category-tittle">{data.name}</h3>
-          </div>
+    const serviceCategory = async () => {
+        const result = await categoryService.QuantList(6);
+        setCategoryList(result);
+        console.log(categoryList);
+    };
+    return (
+        <div className="app-container-map-category-cards">
+            {categoryList?.map((data, idx) => (
+                <div className="wrapper-card" key={idx}>
+                    <div
+                        className="category-card"
+                        onClick={() => console.log(data.id)}
+                    >
+                        <img src={data.image_url} alt="category-data-card" />
+                        <h3 className="category-tittle">{data.name}</h3>
+                    </div>
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
