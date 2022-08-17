@@ -88,6 +88,21 @@ const dishesService = {
       return null;
     }
   },
+
+  listQuant: async (num: number) => {
+    try {
+      const { data } = await axios({
+        url: `${BASE_URL}/dishes/listPorCantidad`,
+        method: "post",
+        data: {
+          num: num,
+        },
+      });
+      return data.data;
+    } catch (error) {
+      return null;
+    }
+  },
 };
 
 export default dishesService;

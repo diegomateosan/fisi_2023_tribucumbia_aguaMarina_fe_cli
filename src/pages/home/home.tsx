@@ -7,6 +7,7 @@ import { Slide } from "../../components/slides/slide";
 import Cards from "../../components/listCards/cards";
 import { Footer } from "../../components/footer/footer";
 import { Categories } from "../../components/categories/category";
+import { DishesCard } from "../../components/dataCard/dataCard";
 
 export const Home: React.FC<{
   userState: boolean;
