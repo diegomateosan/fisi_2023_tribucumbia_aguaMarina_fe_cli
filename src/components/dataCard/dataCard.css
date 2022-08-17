@@ -1,4 +1,46 @@
 .app-container-map-category-cards {
-  display: flex;
-  flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.wrapper-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-card {
+    width: 85%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.category-card:hover {
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transition: 0.2s ease all;
+    color: var(--color-icon);
+    font-weight: bold;
+}
+
+.category-card > img {
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+}
+
+.category-card > h3 {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
 }
