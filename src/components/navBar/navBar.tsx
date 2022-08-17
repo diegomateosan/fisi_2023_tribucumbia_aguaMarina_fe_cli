@@ -28,7 +28,8 @@ export const NavBarDefault: React.FC<{
 
   const getProfile = async () => {
     const user = await userService.showName();
-    setEmailValue(user.data.name);
+    console.log(user);
+    setEmailValue(user.data.email);
   };
 
   React.useEffect(() => {
