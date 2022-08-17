@@ -1,10 +1,12 @@
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FiDelete } from "react-icons/fi";
-
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import books from "../../models/books.json";
 import "./cartItem.css";
 import { calculatePriceWithDiscount } from "../card/card";
+import { DishesDefault } from "../../entities/dishes";
+import { useEffect, useState } from "react";
+import dishesService from "../../services/dishes";
 
 type CartItemProps = {
     id: number;
@@ -14,46 +16,37 @@ type CartItemProps = {
 const CartItem = ({ id, quantity }: CartItemProps) => {
     const { removeFromCart, decreaseCartQuantity, increaseCartQuantity } =
         useShoppingCart();
-    const item = books.find((i) => i.id === id);
+
+    const [dishesList, setDisheslist] = useState<DishesDefault[] | null>([]);
+
+    useEffect(() => {
+        serviceDishes();
+    }, []);
+
+    const serviceDishes = async () => {
+        const result = await dishesService.list();
+        setDisheslist(result);
+        console.log(result);
+    };
+
+    const item = dishesList?.find((i) => i.id === id);
+
     if (item == null) return null;
     return (
         <div className="app-container-cart-item">
             <div className="wrapper-grid">
                 <div className="cart-item-img">
-                    <img src={item.image} alt="imagen del producto"></img>
+                    <img src={item.imagen} alt="imagen del producto"></img>
                 </div>
                 <div className="cart-item-info">
-                    <h1>{item.title}</h1>
+                    <h1>{item.nombre}</h1>
                     <div className="cart-item-prices">
-                        {item.percentDiscount ? (
-                            <>
-                                <span className="cart-item-price-unique">
-                                    S/{" "}
-                                    {calculatePriceWithDiscount(
-                                        item.price,
-                                        item.percentDiscount
-                                    )}
-                                </span>
-                                <span className="cart-item-price-subtotal">
-                                    S/{" "}
-                                    {(
-                                        calculatePriceWithDiscount(
-                                            item.price,
-                                            item.percentDiscount
-                                        ) * quantity
-                                    ).toFixed(2)}
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                <span className="cart-item-price-unique">
-                                    S/ {item.price}
-                                </span>
-                                <span className="cart-item-price-subtotal">
-                                    S/ {(item.price * quantity).toFixed(2)}
-                                </span>
-                            </>
-                        )}
+                        <span className="cart-item-price-unique">
+                            S/ {item.precio}
+                        </span>
+                        <span className="cart-item-price-subtotal">
+                            S/ {(item.precio * quantity).toFixed(2)}
+                        </span>
                     </div>
                     <div className="cart-item-info-quantity">
                         {quantity > 0 && (

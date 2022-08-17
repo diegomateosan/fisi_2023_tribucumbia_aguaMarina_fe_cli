@@ -5,6 +5,9 @@ import "./shoppingCart.css";
 import books from "../../models/books.json";
 import { calculatePriceWithDiscount } from "../card/card";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { DishesDefault } from "../../entities/dishes";
+import dishesService from "../../services/dishes";
 
 type ShoppingCartProps = {
     isOpen: boolean;
@@ -13,6 +16,17 @@ type ShoppingCartProps = {
 const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
     const navigate = useNavigate();
     const { closeCart, cartItems } = useShoppingCart();
+    const [dishesList, setDisheslist] = useState<DishesDefault[] | null>([]);
+
+    useEffect(() => {
+        serviceDishes();
+    }, []);
+
+    const serviceDishes = async () => {
+        const result = await dishesService.listQuant(11);
+        setDisheslist(result);
+        console.log(result);
+    };
     return (
         <>
             {isOpen && (
@@ -48,19 +62,13 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                                     S/{" "}
                                     {cartItems
                                         .reduce((subTotal, cartItem) => {
-                                            const item = books.find(
+                                            const item = dishesList!.find(
                                                 (i) => i.id === cartItem.id
                                             );
                                             let realPrice;
-                                            if (item?.percentDiscount) {
-                                                realPrice =
-                                                    calculatePriceWithDiscount(
-                                                        item.price,
-                                                        item.percentDiscount
-                                                    );
-                                            } else {
-                                                realPrice = item?.price;
-                                            }
+
+                                            realPrice = item?.precio;
+
                                             return (
                                                 subTotal +
                                                 (realPrice || 0) *
