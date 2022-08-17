@@ -86,6 +86,7 @@ export const UserDetails: React.FC<{
   export const EditUser: React.FC<{ }> = ({}) => {
     const [Usuario, setUsuario] = useState<UserDefault>();
     const navigate = useNavigate();
+    const [id, setid] = useState<number | undefined>();
     const [name, setName] = useState<string | undefined>("");
     const [nameState, setNameState] = useState(true);
     const [email, setemail] = useState<string | undefined>("");
@@ -121,6 +122,7 @@ export const UserDetails: React.FC<{
       setpassword(Usuario?.password);
       setgenero(Usuario?.gender);
       setphone(Usuario?.phone_number);
+      setid(Usuario?.id);
     }
 
 
@@ -157,17 +159,16 @@ export const UserDetails: React.FC<{
       setgeneroState(true);
   }
   
-    const CreateUser= async () => {
+    const EditUser= async () => {
    
         if (nameState === true && emailState === true && passwordState === true && idRolState===true && generoState===true  && phoneState===true && dniState===true && idRolState===true ) {
   
        
-        if(name!==undefined && email!==undefined && password!==undefined && idRol!==undefined && phone!==undefined && genero!==undefined && dni!==undefined && lastname!==undefined){
-          const result = await  userService.register(name,email,password,idRol,phone,genero,dni,lastname)
+        if(name!==undefined && email!==undefined && phone!==undefined && dni!==undefined && lastname!==undefined && id!==undefined ){
+          const result = await  userService.edit(name,lastname,email,dni,phone,id)
           console.log(result);
-          console.log(idRol);
-          alert("Registro exitoso");
-          navigate("/user");
+          alert("Edición exitosa");
+          navigate("/brisasMarinas/usuario/details");
         }
 
         }else{
@@ -253,7 +254,7 @@ export const UserDetails: React.FC<{
          
      
       
-          <Button placeholder="Editar" handleClick={()=>alert("hacer backend")} />
+          <Button placeholder="Editar" handleClick={()=>EditUser()} />
         </div>
        
             

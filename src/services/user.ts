@@ -117,6 +117,33 @@ const userService = {
   },
 
 
+  edit: async (
+    name: string,
+    lastname: string,
+    email: string,
+    dni: string,
+    phone: string,
+    id: number
+  ) => {
+    try {
+      const { data } = await axios({
+        url: `${BASE_URL}/auth/edit`,
+        method: "post",
+        data: {
+          name: name,
+          lastname: lastname,
+          email: email,
+           dni: dni,
+         phone: phone,
+          id: id,
+        },
+      });
+      return data;
+    } catch (error) {
+      return null;
+    }
+  },
+
 
 
 
