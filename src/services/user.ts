@@ -99,6 +99,27 @@ const userService = {
       return null;
     }
   },
+
+  
+  getuser: async (emailValue: string) => {
+    try {
+      const { data } = await axios({
+        url: `${BASE_URL}/auth/getUserbyEmail`,
+        method: "post",
+        data: {
+          email: emailValue,
+        },
+      });
+      return data;
+    } catch (error) {
+      return null;
+    }
+  },
+
+
+
+
+
 };
 
 export default userService;

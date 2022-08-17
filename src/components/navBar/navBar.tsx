@@ -15,6 +15,7 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import "./navBar.css";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import userService from "../../services/user";
+import Dropdown from "../dropdown/Dropdown";
 
 export const NavBarDefault: React.FC<{
   handleauth: () => void;
@@ -66,13 +67,25 @@ export const NavBarDefault: React.FC<{
           <div className="app-container-navBar-login-register">
             <div className="app-container-navBar-user">
               <BsPersonCircle className="icon icon-user" />
-              {userState ? (
-                <p>Bienvenido, {emailValue}</p>
-              ) : (
-                <p onClick={() => SetModalStateLogin(true)}>
-                  Iniciar Sesión / Registrarse
-                </p>
-              )}
+             
+                  
+                            {userState ? (
+                                <Dropdown
+                                    title={`Bienvenido, ${emailValue}`}
+                                    items={[
+                                        "Mi Historial",
+                                        "Mi Usuario",
+                                        "Cerrar Sesión",
+                                    ]}
+                                />
+                            ) : (
+                                <p onClick={() => SetModalStateLogin(true)}>
+                                    Iniciar Sesión / Registrarse
+                                </p>
+                            )}   
+
+
+
             </div>
 
             <ModalLogin

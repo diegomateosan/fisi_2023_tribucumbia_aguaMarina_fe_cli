@@ -27,6 +27,8 @@ import { AddBookPage } from "./pages/addBookPage/AddBookPage";
 import { EditBookPage } from "./pages/editBookPage/EditBookPage";
 import { DetailsBookPage } from "./pages/detailsBookPage/DetailsBookPage";
 import userService from "./services/user";
+import {UserDetails} from "./components/User/User";
+import { User, UserEdit } from "./pages/user/user";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -86,6 +88,30 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/brisasMarinas/usuario/details"
+              element={
+                <User
+                  userState={userLoggedIn}
+                  handleauth={() => setUserLoggedIn(false)}
+                  handleLogin={() => setUserLoggedIn(true)}
+                />
+              }
+            />
+
+            <Route
+              path="/brisasMarinas/usuario/edit"
+              element={
+                <UserEdit
+                  userState={userLoggedIn}
+                  handleauth={() => setUserLoggedIn(false)}
+                  handleLogin={() => setUserLoggedIn(true)}
+                />
+              }
+            />
+
+
+            
             {/* <Route
               path="/history"
               element={
