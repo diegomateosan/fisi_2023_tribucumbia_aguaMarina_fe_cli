@@ -61,10 +61,7 @@ export const NavBarDefault: React.FC<{
         <div className="app-container-navBar-links">
           <div className="app-container-navBar-login-register">
             <div className="app-container-navBar-user">
-              <BsPersonCircle
-                className="icon icon-user"
-                onClick={() => SetModalStateLogin(true)}
-              />
+              <BsPersonCircle className="icon icon-user" />
               {userState ? (
                 <p>Bienvenido, {emailValue}</p>
               ) : (

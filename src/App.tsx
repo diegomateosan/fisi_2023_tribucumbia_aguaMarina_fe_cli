@@ -50,7 +50,7 @@ function App() {
         {!userLoggedIn && (
           <>
             <Route
-              path="/"
+              path="/brisasMarinas"
               element={
                 <Home
                   userState={userLoggedIn}
@@ -76,7 +76,7 @@ function App() {
         {userLoggedIn && (
           <>
             <Route
-              path="/"
+              path="/brisasMarinas/usuario"
               element={
                 <Home
                   userState={userLoggedIn}
@@ -171,7 +171,11 @@ function App() {
         )}
         <Route
           path="*"
-          element={<Navigate to={userLoggedIn ? "/history" : "/"} />}
+          element={
+            <Navigate
+              to={userLoggedIn ? "/brisasMarinas/usuario" : "/brisasMarinas"}
+            />
+          }
         />
       </Routes>
     </ShoppingCartProvider>
