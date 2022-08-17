@@ -13,6 +13,21 @@ const categoryService = {
     }
   },
 
+  QuantList: async (num: number): Promise<CategoryData[] | null> => {
+    try {
+      const { data } = await axios({
+        url: `${BASE_URL}/category/listPorCantidad`,
+        method: "post",
+        data: {
+          num: num,
+        },
+      });
+      return data.data;
+    } catch (error) {
+      return null;
+    }
+  },
+
   count: async () => {
     try {
       const { data } = await axios.get(`${BASE_URL}/category/count`);

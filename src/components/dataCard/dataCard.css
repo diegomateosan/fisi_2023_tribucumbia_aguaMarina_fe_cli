@@ -1,0 +1,4 @@
+.app-container-map-category-cards {
+  display: flex;
+  flex-direction: row;
+}
