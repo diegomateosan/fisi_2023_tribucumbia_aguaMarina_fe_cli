@@ -10,14 +10,14 @@ export const Footer: React.FC<{}> = ({}) => {
       <div className="app-container-footer">
         <div className="partFooter partFooter-img1">
           <img
-            src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
-            alt="Villalibros Logo"
-            title="Logo Villalibros"
+            src="https://drive.google.com/uc?export=view&id=1QoVJgFlsNnogzL_iuBPLZB0UA4I0L392"
+            alt="Brisas Marinas Logo"
+            title="Logo Brisas Marinas"
           />
         </div>
 
         <div className="partFooter">
-          <h4>2022 Biblioteca Villalibros</h4>
+          <h4>2022 Cevicheria Brisas Marina</h4>
           <FaCopyright className="i-copyright icon-foot"></FaCopyright>
         </div>
 

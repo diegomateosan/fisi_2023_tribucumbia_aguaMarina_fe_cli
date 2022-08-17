@@ -79,7 +79,7 @@ export const FormLogin: React.FC<{
           label="Contraseña"
           placeholder="Debe contener entre 8 a 20 caracteres"
           leyendaError="La contraseña debe contener entre 8 a 20 caracteres."
-          expresionRegular={/^.{8,25}$/}
+          expresionRegular={/^.{4,25}$/}
         />
 
         <div className="app-container-label-register">
