@@ -5,67 +5,46 @@ import { FormLogin, FormRegister } from "../form/form";
 import "./modals.css";
 
 export const ModalLogin: React.FC<{
-    state: boolean;
-    handleChange: (text: boolean) => void;
-    registerState: boolean;
-    handleRegister: (text: boolean) => void;
-    userState: boolean;
-    setUserState: (txt: boolean) => void;
-    emailValue: string;
-    setEmail: (txt: string) => void;
-    setUserValue: (txt: string) => void;
-}> = ({
-    state,
-    handleChange,
-    registerState,
-    handleRegister,
-    userState,
-    setUserState,
-    setEmail,
-    emailValue,
-    setUserValue,
-}) => {
-    return (
-        <>
-            {state && (
-                <div className="app-container-overlay">
-                    <FormLogin
-                        state={state}
-                        handleChange={(txt: boolean) => handleChange(txt)}
-                        registerState={registerState}
-                        handleRegister={(txt: boolean) => handleRegister(txt)}
-                        userState={userState}
-                        setUserState={(txt: boolean) => setUserState(txt)}
-                        emailValue={emailValue}
-                        setEmail={(txt: string) => setEmail(txt)}
-                        setUserValue={(txt: string) => setUserValue(txt)}
-                    />
-                </div>
-            )}
-        </>
-    );
+  state: boolean;
+  handleChange: (text: boolean) => void;
+  handleRegister: (text: boolean) => void;
+  handleAuth: () => void;
+}> = ({ state, handleAuth, handleChange, handleRegister }) => {
+  return (
+    <>
+      {state && (
+        <div className="app-container-overlay">
+          <FormLogin
+            handleChange={(txt: boolean) => handleChange(txt)}
+            handleRegister={(txt: boolean) => handleRegister(txt)}
+            handleauth={() => handleAuth()}
+          />
+        </div>
+      )}
+    </>
+  );
 };
 
 export const ModalRegister: React.FC<{
-    state: boolean;
-    handleChange: (text: boolean) => void;
-    registerState: boolean;
-    handleRegister: (text: boolean) => void;
+  state: boolean;
+  handleChange: (text: boolean) => void;
+  registerState: boolean;
+  handleRegister: (text: boolean) => void;
 }> = ({ state, handleChange, registerState, handleRegister }) => {
-    return (
-        <>
-            {registerState && (
-                <div className="app-container-overlay">
-                    <FormRegister
-                        state={state}
-                        handleChange={(txt: boolean) => handleChange(txt)}
-                        registerState={registerState}
-                        handleRegister={(txt: boolean) => handleRegister(txt)}
-                    />
-                </div>
-            )}
-        </>
-    );
+  return (
+    <>
+      {registerState && (
+        <div className="app-container-overlay">
+          <FormRegister
+            state={state}
+            handleChange={(txt: boolean) => handleChange(txt)}
+            registerState={registerState}
+            handleRegister={(txt: boolean) => handleRegister(txt)}
+          />
+        </div>
+      )}
+    </>
+  );
 };
 
 /* export const ModalAddBook: React.FC<{

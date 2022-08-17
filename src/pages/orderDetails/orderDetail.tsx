@@ -5,21 +5,14 @@ import Order from "../../components/order/order";
 import books from "../../models/books.json";
 
 export const OrderDetailsPage: React.FC<{
-    userState: boolean;
-    setUserState: (txt: boolean) => void;
-    setUserValue: (txt: string) => void;
-    userValue: string;
-}> = ({ userState, setUserState, setUserValue, userValue }) => {
-    return (
-        <div className="app-container-detail">
-            <NavBarDefault
-                userState={userState}
-                setUserState={(txt: boolean) => setUserState(txt)}
-                setUserValue={(txt: string) => setUserValue(txt)}
-                userValue={userValue}
-            />
-            <Order booksSeller={books}></Order>
-            <Footer></Footer>
-        </div>
-    );
+  userState: boolean;
+  handleauth: () => void;
+}> = ({ userState, handleauth }) => {
+  return (
+    <div className="app-container-detail">
+      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+      <Order booksSeller={books}></Order>
+      <Footer></Footer>
+    </div>
+  );
 };

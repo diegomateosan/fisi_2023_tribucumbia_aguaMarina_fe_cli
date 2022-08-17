@@ -6,46 +6,34 @@ import { FcUndo } from "react-icons/fc";
 import { FiCheckSquare, FiSquare } from "react-icons/fi";
 import "./form.css";
 import { AiOutlineClose } from "react-icons/ai";
+import userService from "../../services/user";
 
 export const FormLogin: React.FC<{
-  state: boolean;
   handleChange: (text: boolean) => void;
-  userState: boolean;
-  setUserState: (txt: boolean) => void;
-  registerState: boolean;
   handleRegister: (text: boolean) => void;
-  emailValue: string;
-  setEmail: (txt: string) => void;
-  setUserValue: (txt: string) => void;
-}> = ({
-  state,
-  handleChange,
-  registerState,
-  handleRegister,
-  userState,
-  setUserState,
-  emailValue,
-  setEmail,
-  setUserValue,
-}) => {
+  handleauth: () => void;
+}> = ({ handleauth, handleChange, handleRegister }) => {
   const [InputValue, setInputValue] = useState("");
   const [InputState, setInputState] = useState(false);
 
   const [passwordValue, setPasswordValue] = useState("");
   const [PasswordState, setPasswordState] = useState(false);
 
-  const loginLogic = (password: boolean, email: boolean) => {
-    if (password === false) {
-      alert("Contraseña no válida, revisar el error indicado.");
-    }
-    if (email === false) {
-      alert("Correo no válido, revisar el error indicado.");
-    }
-    if (email === true && password === true) {
-      alert("Sesión iniciada con éxito");
-      handleChange(false);
-      setUserState(true);
-      setUserValue(InputValue);
+  const submitClick = async (emailValue: string, passwordValue: string) => {
+    if (emailValue === "" || passwordValue === "") {
+      alert("Password o email en blanco");
+    } else {
+      const result = await userService.login(emailValue, passwordValue);
+      if (!result.success) {
+        console.log(result);
+        alert(result.message);
+      } else {
+        localStorage.setItem("token", result.data.token);
+        alert("Usuario inició sesión correctamente");
+        console.log(result);
+        handleauth();
+        handleChange(false);
+      }
     }
   };
 
@@ -101,11 +89,9 @@ export const FormLogin: React.FC<{
       </div>
 
       <div className="app-container-button-login">
-        <ButtonLogin
-          placeholder="INICIAR SESIÓN"
-          handleClick={(txt1: boolean, txt2: boolean) => loginLogic(txt1, txt2)}
-          password={PasswordState}
-          email={InputState}
+        <Button
+          placeholder="Iniciar Sesión"
+          handleClick={() => submitClick(InputValue, passwordValue)}
         />
       </div>
     </div>
@@ -123,6 +109,9 @@ export const FormRegister: React.FC<{
 
   const [lastNameValue, setLastNameValue] = useState("");
   const [lastNameState, setLastNameState] = useState(false);
+
+  const [gender, setGender] = useState("");
+  const [genderState, setGenderState] = useState(false);
 
   const [emailValue, setEmailValue] = useState("");
   const [emailState, setEmailState] = useState(false);
@@ -146,55 +135,43 @@ export const FormRegister: React.FC<{
     }
   };
 
-  const RegisterLogic = (
-    name: boolean,
-    lastname: boolean,
-    dni: boolean,
-    phone: boolean,
-    password: boolean,
-    email: boolean,
-    terminos: boolean
-  ) => {
-    if (name === false) {
-      alert("Nombre no valido, revisar el error indicado.");
+  const eventoGenero = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (event.target.value === "Masculino") {
+      setGender("M");
+    } else {
+      setGender("F");
     }
-    if (lastname === false) {
-      alert("Apellido no valido, revisar el error indicado.");
-    }
-    if (dni === false) {
-      alert("Número de DNI no valido, revisar el error indicado.");
-    }
-    if (phone === false) {
-      alert("Número de celular no valido, revisar el error indicado.");
-    }
-    if (email === false) {
-      alert("Correo no valido, revisar el error indicado.");
-    }
+    setGenderState(true);
+  };
 
-    if (password === false) {
-      alert("Contraseña no valida, revisar el error indicado.");
-    }
-
-    if (terminos === false) {
-      alert(
-        "Terminos y condiciones no aceptados, por favor verifique la casilla."
-      );
-    }
-
+  const CreateUser = async () => {
     if (
-      name === true &&
-      lastname === true &&
-      email === true &&
-      password === true &&
-      phone === true &&
-      dni === true &&
-      terminos === true
+      nametState === true &&
+      emailState === true &&
+      passwordState === true &&
+      genderState === true &&
+      phoneState === true &&
+      dniState === true
     ) {
-      alert("Usuario registrado correctamente");
+      const result = await userService.register(
+        nameValue,
+        emailValue,
+        passwordValue,
+        "CLI",
+        phoneValue,
+        gender,
+        dniValue,
+        lastNameValue
+      );
+      console.log(result);
+      alert("Registro exitoso");
       handleRegister(false);
       handleChange(true);
+    } else {
+      alert("campos vacios");
     }
   };
+
   const volverLogin = () => {
     handleRegister(false);
     handleChange(true);
@@ -326,34 +303,9 @@ export const FormRegister: React.FC<{
         </div>
 
         <div className="app-container-register-CrearCuenta">
-          <ButtonRegister
-            name={nametState}
-            lastname={lastNameState}
-            dni={dniState}
-            email={emailState}
-            phone={phoneState}
-            password={passwordState}
-            placeholder="CREAR CUENTA"
-            terminos={terminoStatue}
-            handleClick={(
-              name: boolean,
-              lastname: boolean,
-              dni: boolean,
-              phone: boolean,
-              password: boolean,
-              email: boolean,
-              terminos: boolean
-            ) =>
-              RegisterLogic(
-                name,
-                lastname,
-                dni,
-                phone,
-                password,
-                email,
-                terminos
-              )
-            }
+          <Button
+            placeholder="Registrar Usuario"
+            handleClick={() => CreateUser()}
           />
         </div>
       </div>
@@ -361,13 +313,7 @@ export const FormRegister: React.FC<{
   );
 };
 
-
-
-export const FormComprar: React.FC<{
- 
-}> = ({  }) => {
- 
-
+export const FormComprar: React.FC<{}> = ({}) => {
   const ComprarLogic = (
     name: boolean,
     lastname: boolean,
@@ -413,12 +359,8 @@ export const FormComprar: React.FC<{
       terminos === true
     ) {
       alert("Usuario registrado correctamente");
-  
     }
   };
 
-
-  return (
-   <div></div>
-  );
+  return <div></div>;
 };

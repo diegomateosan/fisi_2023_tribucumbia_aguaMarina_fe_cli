@@ -10,20 +10,13 @@ import { Categories } from "../../components/categories/category";
 
 export const Home: React.FC<{
   userState: boolean;
-  setUserState: (txt: boolean) => void;
-  setUserValue: (txt: string) => void;
-  userValue: string;
-}> = ({ userState, setUserState, setUserValue, userValue }) => {
+  handleauth: () => void;
+}> = ({ userState, handleauth }) => {
   const [loginState, setLoginState] = useState(false);
 
   return (
     <div className="app-container-home">
-      <NavBarDefault
-        userState={userState}
-        setUserState={(txt: boolean) => setUserState(txt)}
-        setUserValue={(txt: string) => setUserValue(txt)}
-        userValue={userValue}
-      />
+      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
       <Slide></Slide>
       <Categories></Categories>
       <Cards></Cards>

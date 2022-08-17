@@ -24,6 +24,8 @@
 .app-container-inputAndIcon {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  align-content: center;
 }
 
 .app-container-inputAndIcon > input {
@@ -37,9 +39,9 @@
   font-weight: 500;
   background: none;
   border-radius: 0;
-  color: #223254;
   transition: all 0.15s ease;
   border-bottom: 1px solid;
+  margin-right: 30px;
 }
 
 .app-container-icon {

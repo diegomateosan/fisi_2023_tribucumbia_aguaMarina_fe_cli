@@ -12,20 +12,13 @@ import { Searchbox } from "../../components/searchBox/searchBox";
 
 import "./history.css";
 export const History: React.FC<{
-    userState: boolean;
-    setUserState: (txt: boolean) => void;
-    setUserValue: (txt: string) => void; // corro
-    userValue: string; // correo
-}> = ({ userState, setUserState, setUserValue, userValue }) => {
-
+  userState: boolean;
+  handleauth: () => void;
+}> = ({ userState, handleauth }) => {
   return (
     <div className="app-container-history">
-      <NavBarDefault
-        userState={userState}
-        setUserState={(txt: boolean) => setUserState(txt)}
-        setUserValue={(txt: string) => setUserValue(txt)}
-        userValue={userValue}
-      />
+      <NavBarDefault userState={userState} handleauth={() => handleauth()} />
+
       <HistoryHeader />
       <div className="app-container-history-searchbox">
         <Searchbox
@@ -37,12 +30,9 @@ export const History: React.FC<{
       <div className="app-container-table">
         <FilaDefault />
       </div>
-    <div className="app-container-History-footer">
-
-    <Footer />
-
-    </div>
-      
+      <div className="app-container-History-footer">
+        <Footer />
+      </div>
     </div>
   );
 };
