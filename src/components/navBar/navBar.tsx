@@ -44,7 +44,7 @@ export const NavBarDefault: React.FC<{
       <div className="app-container-navBar">
         <div className="app-container-navBar-Logo">
           <img
-            src="https://drive.google.com/uc?export=view&id=1dk1XPtnOFFozdM5gVrO5Jl7poi6hrZLi"
+            src="https://drive.google.com/uc?export=view&id=1QoVJgFlsNnogzL_iuBPLZB0UA4I0L392"
             alt="Villalibros Logo"
             title="Logo Villalibros"
             onClick={() => navigate("/")}
