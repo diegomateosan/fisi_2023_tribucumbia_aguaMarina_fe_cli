@@ -77,6 +77,7 @@ export const NavBarDefault: React.FC<{
                                         "Mi Usuario",
                                         "Cerrar Sesión",
                                     ]}
+                                    handle ={()=>handleauth()}
                                 />
                             ) : (
                                 <p onClick={() => SetModalStateLogin(true)}>

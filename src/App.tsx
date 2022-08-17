@@ -41,6 +41,8 @@ function App() {
     resultVerify === true ? setUserLoggedIn(true) : setUserLoggedIn(false);
   };
 
+  
+
   useEffect(() => {
     VerifyLoggedIn();
     console.log("estado:", userLoggedIn);

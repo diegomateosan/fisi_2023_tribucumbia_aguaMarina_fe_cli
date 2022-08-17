@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 const Dropdown: React.FC<{
     items: Array<String>;
     title: string;
-}> = ({ title, items }) => {
+    handle : ()=>void;
+}> = ({ title, items ,handle}) => {
     const [state, setState] = useState(false);
     const navigate = useNavigate();
     const shownDropdown = () => {
@@ -16,8 +17,20 @@ const Dropdown: React.FC<{
         setState(false);
     };
 
-    const showUser = () => {
-        navigate("/brisasMarinas/usuario/details")
+    const showUser = async (x: String) => {
+ 
+        if(x==="Mi Usuario"){
+            navigate("/brisasMarinas/usuario/details");
+        }else if (x==="Cerrar Sesión"){
+            try {
+                await localStorage.removeItem("token");
+                handle();
+                alert("Sesión terminada");
+              } catch (err) {
+                console.error(err);
+              }
+            }
+       
     };
 
 
@@ -35,11 +48,12 @@ const Dropdown: React.FC<{
                     <ul className="dropdown-list" onMouseOver={shownDropdown}>
                         {items.map((item) => {
                             return (
-                                <li className="dropdown-item" key={key++} onClick={()=>showUser()} >
+                                <li className="dropdown-item" key={key++} onClick={()=>showUser(item)} >
                                     {item}
                                 </li>
                             );
                         })}
+
                     </ul>
                 ) : null}
             </div>

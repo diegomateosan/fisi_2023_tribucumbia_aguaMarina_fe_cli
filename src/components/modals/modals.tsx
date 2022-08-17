@@ -19,7 +19,7 @@ export const ModalLogin: React.FC<{
             handleChange={(txt: boolean) => handleChange(txt)}
             handleRegister={(txt: boolean) => handleRegister(txt)}
             handleauth={() => handleAuth()}
-            handleLogin={() => handleLogin}
+            handleLogin={() => handleLogin()}
           />
         </div>
       )}
