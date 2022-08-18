@@ -7,3 +7,13 @@ export interface pedidoData {
   id_platillo: number;
   id_factura: number;
 }
+
+export interface pedidoHistorial {
+
+
+  nombre: string;
+  precio: number;
+  cantidad: number;
+  subTotal : number;
+  fecha: string;
+}

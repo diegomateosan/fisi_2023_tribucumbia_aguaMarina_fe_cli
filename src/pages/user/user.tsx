@@ -7,6 +7,7 @@ import { Slide } from "../../components/slides/slide";
 import { Footer } from "../../components/footer/footer";
 import { EditUser, UserDetails } from "../../components/User/User";
 import { UserDefault } from "../../entities/User";
+import { TablaPedidos } from "../../components/tablaPedidos/tablaPedidos";
 
 export const User: React.FC<{
   userState: boolean;
@@ -47,3 +48,26 @@ export const UserEdit: React.FC<{
     </div>
   );
 };
+
+
+
+
+export const UserHistory: React.FC<{
+  userState: boolean;
+  handleauth: () => void;
+  handleLogin: () => void;
+}> = ({ userState, handleauth, handleLogin }) => {
+  return (
+    <div className="app-container-home">
+      <NavBarDefault
+        userState={userState}
+        handleauth={() => handleauth()}
+        handleLogin={() => handleLogin()}
+      />
+      <TablaPedidos/>
+
+      <Footer></Footer>
+    </div>
+  );
+};
+

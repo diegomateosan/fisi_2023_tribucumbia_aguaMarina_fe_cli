@@ -29,6 +29,20 @@ const pedidoService = {
         }
       },
 
+      listPorUsuario: async (id: number) => {
+        try {
+          const { data } = await axios({
+            url: `${BASE_URL}/pedido/selectPedidoPorUsuario`,
+            method: "post",
+            data: {
+              id: id,
+            },
+          });
+          return data.data;
+        } catch (error) {
+          return null;
+        }
+      },
 
 
 };

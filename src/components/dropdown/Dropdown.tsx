@@ -29,6 +29,8 @@ const Dropdown: React.FC<{
               } catch (err) {
                 console.error(err);
               }
+            }else if(x==="Mi Historial"){
+                navigate("/brisasMarinas/usuario/history");
             }
        
     };
