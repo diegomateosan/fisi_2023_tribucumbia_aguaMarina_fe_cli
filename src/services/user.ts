@@ -100,7 +100,6 @@ const userService = {
     }
   },
 
-  
   getuser: async (emailValue: string) => {
     try {
       const { data } = await axios({
@@ -115,7 +114,6 @@ const userService = {
       return null;
     }
   },
-
 
   edit: async (
     name: string,
@@ -133,8 +131,8 @@ const userService = {
           name: name,
           lastname: lastname,
           email: email,
-           dni: dni,
-         phone: phone,
+          dni: dni,
+          phone: phone,
           id: id,
         },
       });
@@ -144,9 +142,21 @@ const userService = {
     }
   },
 
-
-
-
+  loginUser: async (email: string, password: string) => {
+    try {
+      const { data } = await axios({
+        url: `${BASE_URL}/auth/loginCliente`,
+        method: "post",
+        data: {
+          email: email,
+          password: password,
+        },
+      });
+      return data;
+    } catch (error) {
+      return null;
+    }
+  },
 };
 
 export default userService;
