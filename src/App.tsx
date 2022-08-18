@@ -27,7 +27,7 @@ import { AddBookPage } from "./pages/addBookPage/AddBookPage";
 import { EditBookPage } from "./pages/editBookPage/EditBookPage";
 import { DetailsBookPage } from "./pages/detailsBookPage/DetailsBookPage";
 import userService from "./services/user";
-import {UserDetails} from "./components/User/User";
+import { UserDetails } from "./components/User/User";
 import { User, UserEdit } from "./pages/user/user";
 
 function App() {
@@ -40,8 +40,6 @@ function App() {
 
     resultVerify === true ? setUserLoggedIn(true) : setUserLoggedIn(false);
   };
-
-  
 
   useEffect(() => {
     VerifyLoggedIn();
@@ -112,8 +110,17 @@ function App() {
               }
             />
 
+            <Route
+              path="/finalizarCompra"
+              element={
+                <FinalizarCompra
+                  userState={userLoggedIn}
+                  handleauth={() => setUserLoggedIn(false)}
+                  handleLogin={() => setUserLoggedIn(true)}
+                />
+              }
+            />
 
-            
             {/* <Route
               path="/history"
               element={

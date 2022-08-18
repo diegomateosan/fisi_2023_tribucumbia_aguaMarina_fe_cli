@@ -26,7 +26,7 @@ export const FormLogin: React.FC<{
     if (emailValue === "" || passwordValue === "") {
       alert("Password o email en blanco");
     } else {
-      const result = await userService.login(emailValue, passwordValue);
+      const result = await userService.loginUser(emailValue, passwordValue);
       if (!result.success) {
         console.log(result);
         alert(result.message);
