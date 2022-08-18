@@ -23,7 +23,7 @@ export const Home: React.FC<{
         handleauth={() => handleauth()}
         handleLogin={() => handleLogin()}
       />
-      <Slide></Slide>
+      {/* <Slide></Slide> */}
       <Categories></Categories>
       <Cards></Cards>
       <Footer></Footer>
