@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavBarDefault } from "../../components/navBar/navBar";
 import { ComprarHeader } from "../../components/header/header";
 import { HiIdentification } from "react-icons/hi";
@@ -7,6 +7,14 @@ import { Footer } from "../../components/footer/footer";
 import "./finalizarComprar.css";
 import { InputDefault, InputPassword } from "../../components/input/input";
 import { ButtonComprar, ButtonDescuento } from "../../components/button/button";
+import { useShoppingCart } from "../../components/context/ShoppingCartContext";
+import dishesService from "../../services/dishes";
+import { DishesDefault } from "../../entities/dishes";
+import { UserDefault } from "../../entities/User";
+import userService from "../../services/user";
+import facturaService from "../../services/factura";
+import { useNavigate } from "react-router-dom";
+import pedidoService from "../../services/pedido";
 export const FinalizarCompra: React.FC<{
   userState: boolean;
   handleauth: () => void;
@@ -32,6 +40,14 @@ export const FinalizarCompra: React.FC<{
 
   const [terminoStatue, seterminosState] = useState(false);
 
+  const { closeCart, cartItems } = useShoppingCart();
+  const [idFactura, setidFactura ] = useState(0);
+  
+  const [Usuario, setUsuario] = useState<UserDefault>();
+
+  const [dishesList, setDisheslist] = useState<DishesDefault[] | null>([]);
+  const navigate = useNavigate();
+
   const tooglePasswordVisibility = () => {
     if (terminoStatue === false) {
       seterminosState(true);
@@ -40,13 +56,98 @@ export const FinalizarCompra: React.FC<{
     }
   };
 
+  const serviceUsuario = async () => {
+    const result = await userService.showName();
+    setUsuario(result.data);
+    console.log(result.data);
+  };
+
+
   const CuponLogic = (codigo: boolean) => {
     if (codigo === true) {
       alert("cupon aplicado");
     }
   };
+  const now = new Date();
 
-  const ComprarLogic = (
+  const retornarFecha = () => {
+    return now.toLocaleDateString()
+  };
+
+
+  const retornarPlatoxid = (idPlato : number)=>{
+    const plato = dishesList!.find((plato)=>plato.id ===idPlato )
+      return plato;
+  }
+
+
+  const guardarPedidos = async ()=>{
+    cartItems.map((data,idx)=>
+      servicepedido(retornarPlatoxid(data.id)!.precio*data.quantity ,idFactura,data.id,data.quantity)      
+    )
+  }
+
+
+
+  
+  const servicepedido = async (subtotal : number,id_factura : number, id_platillo : number, cantidad: number) => {
+    const result = await  pedidoService.create(
+      cantidad,
+      subtotal,
+      id_platillo,
+      id_factura
+    )
+
+     console.log(result.data);
+  };
+
+
+
+
+  useEffect(() => {
+    serviceUsuario();
+    serviceDishes();
+}, []);
+
+  useEffect(()=>{
+    console.log(idFactura)
+  if(idFactura!==0 && idFactura!==undefined ){
+
+    guardarPedidos();
+     navigate("/brisasMarinas");
+
+  }
+
+  },[idFactura])
+
+
+const serviceDishes = async () => {
+    const result = await dishesService.listQuant(11);
+    setDisheslist(result);
+    console.log(result);
+};
+
+
+const total = ()=>{
+    return  cartItems.reduce((subTotal, cartItem) => {
+        const item = dishesList!.find(
+            (i) => i.id === cartItem.id
+        );
+        let realPrice;
+
+        realPrice = item?.precio;
+
+        return (
+            subTotal +
+            (realPrice || 0) *
+                cartItem.quantity
+        );
+    }, 0)
+    .toFixed(2)
+}
+
+
+  const ComprarLogic = async (
     name: boolean,
     lastname: boolean,
     codigo: boolean,
@@ -78,7 +179,24 @@ export const FinalizarCompra: React.FC<{
       fecha === true &&
       codigo === true
     ) {
-      alert("Compra exitosa");
+      if(Usuario?.id !==undefined){
+        const result = await facturaService.create (
+          Number(total()),
+          retornarFecha(),
+          Usuario?.id
+        );
+        console.log(result);
+        setidFactura(result.data.id);  
+        alert("Compra exitosa");
+          
+
+      }else{
+       
+        alert("Error")
+      }
+    }else{
+
+      alert("campos vacios")
     }
   };
 
@@ -89,14 +207,14 @@ export const FinalizarCompra: React.FC<{
         handleauth={() => handleauth()}
         handleLogin={() => handleLogin}
       />
-
+ 
       <ComprarHeader />
 
       <div className="app-container-comprar">
         <div className="app-container-comprar-tarjeta">
           <div className="app-container-comprar-identificacion">
             <HiIdentification size={20} />
-            <label>Identificación</label>
+            <label onClick={()=>console.log(cartItems)}>Identificación</label>
           </div>
           <label>
             Solicitamos la información necesario para finalizar la compra{" "}
@@ -220,7 +338,7 @@ export const FinalizarCompra: React.FC<{
               </div>
 
               <div className="app-container-Resumen-subtotal_2">
-                <label>S/.155.00</label>
+                <label>{total()}</label>
               </div>
             </div>
 
@@ -230,7 +348,7 @@ export const FinalizarCompra: React.FC<{
               </div>
 
               <div className="app-container-Resumen-descuento_2">
-                <label>S/.-77.50</label>
+                <label>S/.-00.00</label>
               </div>
             </div>
             <div className="app-container-barra"></div>
@@ -241,7 +359,7 @@ export const FinalizarCompra: React.FC<{
               </div>
 
               <div className="app-container-Resumen-Total_2">
-                <label>S/.105.10</label>
+                <label>{total()}</label>
               </div>
             </div>
             <label> Ingrese una nota para su pedido :</label>
