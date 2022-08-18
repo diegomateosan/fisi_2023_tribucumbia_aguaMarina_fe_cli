@@ -57,7 +57,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                             />
                             <h1>CARRITO DE COMPRAS</h1>
                         </div>
-                        |
+
                         {cartQuantity === 0 ? (
                             <div className="shopping-cart-body shopping-empty-cart">
                                 <AiOutlineShoppingCart className="icon-empty-cart"></AiOutlineShoppingCart>

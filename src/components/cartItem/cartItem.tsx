@@ -47,6 +47,13 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
                         <span className="cart-item-price-subtotal">
                             S/ {(item.precio * quantity).toFixed(2)}
                         </span>
+                        <div className="cart-item-btn-delete">
+                            <FiDelete
+                                className="icon-delete-item"
+                                title="Eliminar libro del carrito de compras"
+                                onClick={() => removeFromCart(item.id)}
+                            ></FiDelete>
+                        </div>
                     </div>
                     <div className="cart-item-info-quantity">
                         {quantity > 0 && (
@@ -69,13 +76,6 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
                             onClick={() => increaseCartQuantity(item.id)}
                         ></AiFillPlusCircle>
                     </div>
-                </div>
-                <div className="cart-item-btn-delete">
-                    <FiDelete
-                        className="icon-delete-item"
-                        title="Eliminar libro del carrito de compras"
-                        onClick={() => removeFromCart(item.id)}
-                    ></FiDelete>
                 </div>
             </div>
         </div>
