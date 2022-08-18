@@ -111,7 +111,16 @@ function App() {
                 />
               }
             />
-
+              <Route
+              path="/finalizarCompra"
+              element={
+                <FinalizarCompra
+                userState={userLoggedIn}
+                handleauth={() => setUserLoggedIn(false)}
+                handleLogin={() => setUserLoggedIn(true)}
+                />
+              }
+            /> 
 
             
             {/* <Route

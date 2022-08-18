@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { DishesDefault } from "../../entities/dishes";
 import dishesService from "../../services/dishes";
+import userService from "../../services/user";
 
 type ShoppingCartProps = {
     isOpen: boolean;
@@ -27,6 +28,23 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
         setDisheslist(result);
         console.log(result);
     };
+
+    const Comprar = async ( ) =>{
+        const resultVerify = await userService.verify();
+        console.log("LOGEADO?"+resultVerify);
+        if(resultVerify === true ){
+            navigate("/finalizarCompra")
+        }else{
+
+            alert("Primero debe Iniciar Sesión para continuat")
+        }
+
+
+    }
+
+
+
+
     return (
         <>
             {isOpen && (
@@ -108,9 +126,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                                 </span>
                             </div>
                             <button
-                                onClick={(e) => {
-                                    navigate("/finalizarCompra");
-                                }}
+                                onClick={()=>Comprar() }
                                 className="shopping-cart-footer-btn"
                             >
                                 Finalizar compra
