@@ -9,11 +9,9 @@ export interface pedidoData {
 }
 
 export interface pedidoHistorial {
-
-
   nombre: string;
   precio: number;
   cantidad: number;
-  subTotal : number;
+  subTotal: number;
   fecha: string;
 }
