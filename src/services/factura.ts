@@ -2,7 +2,7 @@ import axios from "axios";
 import { FacturayData } from "../entities/factura";
 
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://kpl1jddpz7.execute-api.us-east-1.amazonaws.com";
 
 const facturaService = {
 
