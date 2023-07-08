@@ -115,7 +115,7 @@ export const FormRegister: React.FC<{
   const [lastNameState, setLastNameState] = useState(false);
 
   const [gender, setGender] = useState("");
-  const [genderState, setGenderState] = useState(false);
+  const [genderState, setGenderState] = useState(true);
 
   const [emailValue, setEmailValue] = useState("");
   const [emailState, setEmailState] = useState(false);
@@ -268,24 +268,24 @@ export const FormRegister: React.FC<{
 
         <div className="app-container-phone-gender">
           <div className="phone-left">
-          <InputDefault
-            estado={phoneState}
-            campo={phoneValue}
-            cambiarEstado={(txt: boolean) => setPhoneState(txt)}
-            cambiarCampo={(txt: string) => setPhoneValue(txt)}
-            tipo="text"
-            label="Número de celular"
-            placeholder="Debe contener 9 caracteres numéricos"
-            leyendaError="Debe contener 9 números"
-            expresionRegular={/^\d{9}$/}
-          />
+            <InputDefault
+              estado={phoneState}
+              campo={phoneValue}
+              cambiarEstado={(txt: boolean) => setPhoneState(txt)}
+              cambiarCampo={(txt: string) => setPhoneValue(txt)}
+              tipo="text"
+              label="Número de celular"
+              placeholder="Debe contener 9 caracteres numéricos"
+              leyendaError="Debe contener 9 números"
+              expresionRegular={/^\d{9}$/}
+            />
           </div>
           <div className="gender-right">
             <label>Genero</label>
             <div className="select-gender">
-            <select className="categoria" name="Genero">
-              <option>Masculino</option> <option>Femenino</option>
-            </select>
+              <select className="categoria" name="Genero" onChange={eventoGenero}>
+                <option>Masculino</option> <option>Femenino</option>
+              </select>
             </div>
           </div>
         </div>
@@ -327,7 +327,7 @@ export const FormRegister: React.FC<{
   );
 };
 
-export const FormComprar: React.FC<{}> = ({}) => {
+export const FormComprar: React.FC<{}> = ({ }) => {
   const ComprarLogic = (
     name: boolean,
     lastname: boolean,

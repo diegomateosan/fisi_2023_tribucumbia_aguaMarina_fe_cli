@@ -4,20 +4,21 @@ import { FaCopyright, FaFacebookF } from "react-icons/fa";
 import { BsBook, BsShieldLock, BsInstagram } from "react-icons/bs";
 
 import { FiTwitter, FiYoutube, FiHelpCircle } from "react-icons/fi";
-export const Footer: React.FC<{}> = ({}) => {
+export const Footer: React.FC<{}> = ({ }) => {
   return (
     <div className="app-main-container-footer">
       <div className="app-container-footer">
         <div className="partFooter partFooter-img1">
           <img
-            src="https://drive.google.com/uc?export=view&id=1QoVJgFlsNnogzL_iuBPLZB0UA4I0L392"
+            style={{ width: "80%" }}
+            src="https://dondealfredo.com/wp-content/uploads/2022/11/LOGO_-e1667286697526.jpg"
             alt="Brisas Marinas Logo"
             title="Logo Brisas Marinas"
           />
         </div>
 
         <div className="partFooter">
-          <h4>2022 Cevicheria Brisas Marina</h4>
+          <h4>2022 Cevicheria Donde Alfredo</h4>
           <FaCopyright className="i-copyright icon-foot"></FaCopyright>
         </div>
 

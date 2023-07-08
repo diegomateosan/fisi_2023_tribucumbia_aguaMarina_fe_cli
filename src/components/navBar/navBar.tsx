@@ -49,7 +49,8 @@ export const NavBarDefault: React.FC<{
       <div className="app-container-navBar">
         <div className="app-container-navBar-Logo">
           <img
-            src="https://drive.google.com/uc?export=view&id=1QoVJgFlsNnogzL_iuBPLZB0UA4I0L392"
+            style={{ width: "80%" }}
+            src="https://dondealfredo.com/wp-content/uploads/2022/11/LOGO_-e1667286697526.jpg"
             alt="Villalibros Logo"
             title="Logo Villalibros"
             onClick={() => navigate("/")}
@@ -67,23 +68,23 @@ export const NavBarDefault: React.FC<{
           <div className="app-container-navBar-login-register">
             <div className="app-container-navBar-user">
               <BsPersonCircle className="icon icon-user" />
-             
-                  
-                            {userState ? (
-                                <Dropdown
-                                    title={`Bienvenido, ${emailValue}`}
-                                    items={[
-                                        "Mi Historial",
-                                        "Mi Usuario",
-                                        "Cerrar Sesión",
-                                    ]}
-                                    handle ={()=>handleauth()}
-                                />
-                            ) : (
-                                <p onClick={() => SetModalStateLogin(true)}>
-                                    Iniciar Sesión / Registrarse
-                                </p>
-                            )}   
+
+
+              {userState ? (
+                <Dropdown
+                  title={`Bienvenido, ${emailValue}`}
+                  items={[
+                    "Mi Historial",
+                    "Mi Usuario",
+                    "Cerrar Sesión",
+                  ]}
+                  handle={() => handleauth()}
+                />
+              ) : (
+                <p onClick={() => SetModalStateLogin(true)}>
+                  Iniciar Sesión / Registrarse
+                </p>
+              )}
 
 
 
