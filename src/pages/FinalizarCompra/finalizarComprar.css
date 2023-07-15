@@ -1,169 +1,182 @@
-.app-container-comprar-tarjeta{
-
-    width: 58%;
-    margin-left: 100px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
+.app-container-comprar {
+  margin-bottom: 2rem;
 }
 
-.app-container-comprar-Resumen{
-    width: 25%;
-    margin-left: 100px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
+.app-container-comprar-tarjeta {
+  width: 58%;
+  margin-left: 100px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
 }
 
-.app-container-comprar{
-    display: flex;
-    flex-direction: row;
-    margin-right: 50px;
-    margin-top: 30px;
-
+.app-container-comprar-Resumen {
+  width: 25%;
+  margin-left: 100px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
 }
 
-.app-container-comprar-identificacion{
-    padding-top: 10px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-        justify-content: left;
-        display: flex;
-        flex-direction: row;
-}
-.app-container-comprar-identificacion > svg{
-    margin-right: 5px;
+.app-container-comprar {
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+  margin-top: 30px;
 }
 
-.app-container-comprar-tarjeta >label {
-
-    margin-left: 30px;
-
+.app-container-form-resevar {
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 100px;
+  margin: 2rem auto;
 }
-.app-container-nombre-apelliado{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    margin-right: 24px;
-    margin-left: -24px;
+.app-container-form-fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.app-container-form-fecha > input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
 }
 
-.app-container-nombre-apelliado > div >div> div > input {
-    width: 100%;
+.app-container-form-fecha > input::-webkit-datetime-edit {
+  color: #333;
+  font-size: 14px;
+  padding: 4px;
+}
+.app-container-comprar-identificacion {
+  padding-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  justify-content: left;
+  display: flex;
+  flex-direction: row;
+}
+.app-container-comprar-identificacion > svg {
+  margin-right: 5px;
+}
 
+.app-container-comprar-tarjeta > label {
+  margin-left: 30px;
+}
+.app-container-nombre-apelliado {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-right: 24px;
+  margin-left: -24px;
+}
 
+.app-container-nombre-apelliado > div > div > div > input {
+  width: 100%;
 }
 
 .app-container-nombre-apelliado > div {
-    width: 100%;
-
-
+  width: 100%;
 }
 
-.app-container-comprar-codigo{
-    margin-left: -24px;
-    margin-right: 24px;
+.app-container-comprar-codigo {
+  margin-left: -24px;
+  margin-right: 24px;
 }
-.app-container-comprar-codigo > div >div> div > input{
-    width: 100%;
+.app-container-comprar-codigo > div > div > div > input {
+  width: 100%;
 }
-.app-container-comprar-button{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.app-container-comprar-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-
 
 .app-container-Resumen-subtotal {
-
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
-.app-container-Resumen-subtotal_1{
-margin-left: 11%;
+.app-container-Resumen-subtotal_1 {
+  margin-left: 11%;
 }
 
-.app-container-Resumen-subtotal_2{
-margin-left: 40%;
+.app-container-Resumen-subtotal_2 {
+  margin-left: 40%;
 }
-.app-container-Resumen >label {
-    margin-left: 11%;
-}
-
-.app-container-Resumen{
-    margin-top: 10px;
-    
+.app-container-Resumen > label {
+  margin-left: 11%;
 }
 
-
+.app-container-Resumen {
+  margin-top: 10px;
+}
 
 .app-container-Resumen-descuento {
-  
-    display: flex;
-    flex-direction: row;
-    
+  display: flex;
+  flex-direction: row;
 }
 
-.app-container-Resumen-descuento_1{
-margin-left: 11%;
+.app-container-Resumen-descuento_1 {
+  margin-left: 11%;
 }
 
-.app-container-Resumen-descuento_2{
-margin-left: 36%;
+.app-container-Resumen-descuento_2 {
+  margin-left: 36%;
 }
-
 
 .app-container-Resumen-Total {
-  
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
-.app-container-Resumen-Total_1{
-margin-left: 11%;
+.app-container-Resumen-Total_1 {
+  margin-left: 11%;
 }
 
-.app-container-Resumen-Total_2{
-margin-left: 50%;
+.app-container-Resumen-Total_2 {
+  margin-left: 50%;
 }
 
-.app-container-barra{
-    margin :10px 35px 10px 35px; 
-    border-bottom: 1px solid;
+.app-container-barra {
+  margin: 10px 35px 10px 35px;
+  border-bottom: 1px solid;
 }
 
-.app-container-Resumen> input{
-    margin-top: 10px;
-    width: 80%;
-    margin-left: 9%;    
-    height: 70px;
+.app-container-Resumen > input {
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 9%;
+  height: 70px;
 }
 
-.app-container-Resumen> input::placeholder{
- color: gray;
- text-align: center;
- padding-top: 30px;
+.app-container-Resumen > input::placeholder {
+  color: gray;
+  text-align: center;
+  padding-top: 30px;
 }
 
-.app-container-comprar-input{
-    margin-left: 40px;
-
+.app-container-comprar-input {
+  margin-left: 40px;
 }
 
-.app-container-comprar-input > div > div > div  {
-    width: 100%;
-    margin-left: 0;
+.app-container-comprar-input > div > div > div {
+  width: 100%;
+  margin-left: 0;
 }
 
 .app-container-comprar-input > div > div > div > input {
-    width: 89%;
-    margin-left: 0;
+  width: 89%;
+  margin-left: 0;
 }
-.app-container-comprar-buton{
-margin-top: -10px;
-margin-left: 39px;
+.app-container-comprar-buton {
+  margin-top: -10px;
+  margin-left: 39px;
 }

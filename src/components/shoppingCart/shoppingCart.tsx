@@ -99,7 +99,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                                                         return (
                                                             subTotal +
                                                             (realPrice || 0) *
-                                                                cartItem.quantity
+                                                            cartItem.quantity
                                                         );
                                                     },
                                                     0
@@ -140,7 +140,7 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                                                         return (
                                                             descuentoTotal +
                                                             (descuento || 0) *
-                                                                cartItem.quantity
+                                                            cartItem.quantity
                                                         );
                                                     },
                                                     0
@@ -148,6 +148,8 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                                                 .toFixed(2)}
                                         </span>
                                     </div>
+                                    <span style={{ color: 'red', textAlign: 'center' }}>Nota: ¡Solo hay modalidad de recojo en tienda!</span>
+
                                     <button
                                         onClick={() => Comprar()}
                                         className="shopping-cart-footer-btn"

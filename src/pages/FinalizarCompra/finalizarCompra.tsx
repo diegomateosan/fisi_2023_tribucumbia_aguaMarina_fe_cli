@@ -15,11 +15,15 @@ import userService from "../../services/user";
 import facturaService from "../../services/factura";
 import { useNavigate } from "react-router-dom";
 import pedidoService from "../../services/pedido";
+import axios from "axios";
+
 export const FinalizarCompra: React.FC<{
     userState: boolean;
     handleauth: () => void;
     handleLogin: () => void;
 }> = ({ userState, handleauth, handleLogin }) => {
+
+
     const [nameValue, setNameValue] = useState("");
     const [nametState, setNameState] = useState(false);
 
@@ -68,11 +72,11 @@ export const FinalizarCompra: React.FC<{
         return plato;
     };
 
-    const guardarPedidos = async () => {
+    const guardarPedidos = async (_idFactura: number) => {
         cartItems.map((data, idx) =>
             servicepedido(
                 retornarPlatoxid(data.id)!.precio * data.quantity,
-                idFactura,
+                _idFactura,
                 data.id,
                 data.quantity
             )
@@ -157,7 +161,7 @@ export const FinalizarCompra: React.FC<{
                     Usuario?.id
                 );
                 console.log(result);
-                setidFactura(result.data.id);
+                ;
                 alert("Compra exitosa");
             } else {
                 alert("Error");
@@ -172,14 +176,50 @@ export const FinalizarCompra: React.FC<{
         serviceDishes();
     }, []);
 
+
+    const [_dishesList, setAllDishes] = useState<DishesDefault[] | null>([]);
+
+
+    const listOfDishes = async () => {
+        const result = await dishesService.list();
+        setAllDishes(result);
+    };
+
     useEffect(() => {
-        console.log(idFactura);
-        if (idFactura !== 0 && idFactura !== undefined) {
-            guardarPedidos();
-            deleteAllItems();
-            navigate("/brisasMarinas");
+        listOfDishes();
+    }, []);
+
+    const handleSubmitCheckout = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        let itemsInCart: Array<{ nombre: string; precio: number; cantidad: number }> = []
+        cartItems.map((item) => {
+            const dish = _dishesList?.find((i) => i.id === item.id);
+            const nombre = dish!.nombre
+            const precio = Math.floor(dish!.precio * 100)
+            const cantidad = item!.quantity
+            itemsInCart.push({ nombre, precio, cantidad })
+            console.log(itemsInCart)
+        })
+
+        try {
+            if (Usuario?.id !== undefined) {
+                await facturaService.create(
+                    Number(total()),
+                    retornarFecha(),
+                    Usuario?.id
+                ).then((res) => guardarPedidos(res.data.id));
+            }
+        } catch (error) {
+
         }
-    }, [idFactura]);
+
+        try {
+            await axios.post('https://7k6zutfo0m.execute-api.us-east-1.amazonaws.com/ux-gestion-pagos/da/servicio-al-cliente/v1/procesar-pagos', {
+                "pedidos": itemsInCart
+            }).then((res) => window.location.replace(`${res.data.url}`))
+        } catch (error) {
+        }
+    }
 
     return (
         <div className="app-container-comprarPagina">
@@ -193,17 +233,7 @@ export const FinalizarCompra: React.FC<{
 
             <div className="app-container-comprar">
                 <div className="app-container-comprar-tarjeta">
-                    <div className="app-container-comprar-identificacion">
-                        <HiIdentification size={20} />
-                        <label onClick={() => console.log(cartItems)}>
-                            Identificación
-                        </label>
-                    </div>
-                    <label>
-                        Solicitamos la información necesario para finalizar la
-                        compra{" "}
-                    </label>
-                    <div className="app-container-form-comprar">
+                    {/* <div className="app-container-form-comprar">
                         <div className="app-container-nombre-apelliado">
                             <InputDefault
                                 estado={nametState}
@@ -288,15 +318,27 @@ export const FinalizarCompra: React.FC<{
                                 }
                             />
                         </div>
+                    </div> */}
+                    <div className="app-container-form-resevar">
+                        <span style={{ fontSize: '32px', fontWeight: 'bold', textAlign: 'center' }}>¿En qué fecha va a recoger el pedido?</span>
+                        <p style={{ fontStyle: 'italic', fontSize: '18px' }}>Asegurese que la fecha indicada usted estará disponible debido a que no hay devolución ni reprogramación de fecha</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '28px' }}>
+                            <div className="app-container-form-fecha">
+                                <label style={{ marginRight: '10px' }} htmlFor="fecha_reserva">Seleccione una fecha</label>
+                                <input type="date" name="fecha_reserva" />
+                                <label style={{ marginRight: '10px' }} htmlFor="hora_reserva">Seleccione el horario</label>
+                                <input type="text" name="hora_reserva" placeholder="4:30 pm o 10:00 am" />
+                            </div>
+                        </div>
                     </div>
                     <div className="app-container-comprar-button">
-                        <ButtonComprar
+                        {/* <ButtonComprar
                             name={nametState}
                             lastname={lastNameState}
                             cvv={cvvdState}
                             fechaven={fechaState}
                             codigo={codigoState}
-                            placeholder="FINALIZAR COMPRA"
+                            placeholder="IR A PAGAR"
                             handleClick={(
                                 name: boolean,
                                 lastname: boolean,
@@ -312,8 +354,13 @@ export const FinalizarCompra: React.FC<{
                                     fechaven
                                 )
                             }
-                        />
+                        /> */}
+                        <button onClick={handleSubmitCheckout} style={{ width: '300px', height: '40px', borderRadius: '15px', border: 'none', backgroundColor: '#34daf0', fontSize: '20px', fontWeight: '20px', color: 'white', cursor: 'pointer' }}>
+                            Ir a Pagar
+                        </button>
+
                     </div>
+
                 </div>
 
                 <div className="app-container-comprar-Resumen">
@@ -382,10 +429,9 @@ export const FinalizarCompra: React.FC<{
                             id="nombre"
                             placeholder="Ingrese su nota"
                         />
-                        <br />
-                        <br />
                     </div>
                 </div>
+
             </div>
 
             <Footer></Footer>

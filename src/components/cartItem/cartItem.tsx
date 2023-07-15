@@ -1,9 +1,7 @@
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FiDelete } from "react-icons/fi";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import books from "../../models/books.json";
 import "./cartItem.css";
-import { calculatePriceWithDiscount } from "../card/card";
 import { DishesDefault } from "../../entities/dishes";
 import { useEffect, useState } from "react";
 import dishesService from "../../services/dishes";
